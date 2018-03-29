@@ -5947,3 +5947,7 @@ label,
 .affix {
   position: fixed;
 }
+.hotThisWeek {
+    font-family: Magneto; 
+    font-size: 70px;
+}
