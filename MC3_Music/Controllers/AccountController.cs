@@ -9,6 +9,7 @@ namespace MC3_Music.Controllers
     public class AccountController : Controller
     {
         // GET: Account
+        //Intentionally causing a merge conflict
         public ActionResult Index()
         {
             return View();
