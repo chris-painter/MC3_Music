@@ -5948,6 +5948,7 @@ label,
   position: fixed;
 }
 .hotThisWeek {
-    font-family: Magneto; 
+    font-family: Magneto;
     font-size: 75px;
+    color: #df691a;
 }
