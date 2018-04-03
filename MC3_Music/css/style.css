@@ -1,0 +1,33 @@
+﻿body {
+}
+
+.four-col-song {
+    text-align: right;
+}
+
+.trackName {
+    font-size: 150%;
+    margin: 0;
+    font-weight: bold;
+}
+
+    .trackName:hover {
+        text-decoration: underline;
+    }
+
+.artistName {
+    margin: 0;
+}
+
+    .artistName:hover {
+        text-decoration: underline;
+    }
+
+.albumName {
+    margin: 0;
+}
+
+    .albumName:hover {
+        text-decoration: underline;
+    }
+
