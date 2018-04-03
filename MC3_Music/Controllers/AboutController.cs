@@ -1,12 +1,12 @@
 ﻿using System.Web.Mvc;
 
 namespace MC3_Music.Controllers
-{
-    public class AboutController : Controller
-    {
-        public ActionResult Index()
-        {
-            return View();
-        }
+{ 
+	public class AboutController : Controller
+	{ //clay
+		public ActionResult Index()
+		{
+			return View();
+		}
 	}
 }
