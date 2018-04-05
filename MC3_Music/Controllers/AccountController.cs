@@ -14,5 +14,10 @@ namespace MC3_Music.Controllers
         {
             return View();
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
     }
 }
