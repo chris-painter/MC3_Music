@@ -1,0 +1,57 @@
+﻿@import url("//fonts.googleapis.com/css?family=Lato:300,400,700");
+/*!
+ * Bootswatch v3.1.1
+ * Homepage: http://bootswatch.com
+ * Copyright 2012-2014 Thomas Park
+ * Licensed under MIT
+ * Based on Bootstrap
+*/
+/*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+body {
+}
+
+.four-col-song {
+    text-align: right;
+}
+
+.trackName {
+    font-size: 150%;
+    margin: 0;
+    font-weight: bold;
+}
+
+    .trackName:hover {
+        text-decoration: underline;
+    }
+
+.artistName {
+    margin: 0;
+}
+
+    .artistName:hover {
+        text-decoration: underline;
+    }
+
+.albumName {
+    margin: 0;
+}
+
+    .albumName:hover {
+        text-decoration: underline;
+    }
+
+.hotThisWeek {
+    font-family: Magneto;
+    font-size: 75px;
+    color: #df691a;
+    background-color: #ebebeb;
+}
+
+.createAccount {
+    float: right;
+}
+
+.btn {
+    background-color: #bf5a16;
+    width: 10px;
+}
