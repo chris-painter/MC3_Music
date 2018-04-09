@@ -13,5 +13,10 @@ namespace MC3_Music.Controllers
         {
             return View();
         }
+
+        public ActionResult getAlbum()
+        {
+            return View("SingleAlbum");
+        }
     }
 }

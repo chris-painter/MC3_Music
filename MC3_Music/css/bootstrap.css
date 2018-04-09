@@ -5754,27 +5754,33 @@ body {
 }
 table,
 .table {
-  font-size: 12px;
+    
+    max-width: 80%;
+    margin-left: 100px;
 }
 table a,
 .table a {
   color: #fff;
   text-decoration: underline;
 }
-table > thead > tr > th,
-.table > thead > tr > th,
-table > tbody > tr > th,
-.table > tbody > tr > th,
-table > tfoot > tr > th,
-.table > tfoot > tr > th,
-table > thead > tr > td,
-.table > thead > tr > td,
-table > tbody > tr > td,
-.table > tbody > tr > td,
-table > tfoot > tr > td,
-.table > tfoot > tr > td {
-  border-color: transparent;
-}
+    .table > thead {
+        font-size: 30px;
+        background-color: #bf5a16;
+    }
+    table > thead > tr > th,
+    .table > thead > tr > th,
+    table > tbody > tr > th,
+    .table > tbody > tr > th,
+    table > tfoot > tr > th,
+    .table > tfoot > tr > th,
+    table > thead > tr > td,
+    .table > thead > tr > td,
+    table > tbody > tr > td,
+    .table > tbody > tr > td,
+    table > tfoot > tr > td,
+    .table > tfoot > tr > td {
+        border-color: transparent;
+    }
 label,
 .radio label,
 .checkbox label,
