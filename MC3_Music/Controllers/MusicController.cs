@@ -15,15 +15,26 @@ namespace MC3_Music.Controllers
             return View();
         }
 
-        public ActionResult getAlbum()
+        public ActionResult SingleAlbum()
         {
-            return View("SingleAlbum");
+            return View();
         }
+
+        //public ActionResult getAlbum()
+        //{
+        //    return View("SingleAlbum");
+        //}
 
         // GET: Music/Random
         public ActionResult Random()
         {
-            var album = new Album() { Title = "Thriller", Genre = Album.Genres.Rock, Artist = "Michael Jackson" };
+            List<string> songs = new List<string>();
+            songs.Add("Thriller");
+            songs.Add("Beat It");
+            songs.Add("Bad");
+
+            var album = new Album() { Title = "Thriller", Genre = Album.Genres.Rock, Artist = "Michael Jackson", Songs = songs};
+
             return View(album);
         }
     }
