@@ -11,8 +11,9 @@ namespace MC3_Music.Models
         public int Id { get; set; }
         [Required]
         [StringLength(255)]
-        public string Name { get; set; }
         public string Email { get; set; }
-        public string Number { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Password { get; set; }
     }
 }

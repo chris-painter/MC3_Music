@@ -13,7 +13,7 @@ namespace MC3_Music.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201804090301141_InitialModel"; }
+            get { return "201804091733094_InitialModel"; }
         }
         
         string IMigrationMetadata.Source
