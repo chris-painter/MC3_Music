@@ -13,5 +13,10 @@ namespace MC3_Music.Controllers
         {
             return View();
         }
+
+        public ActionResult CartView()
+        {
+            return View();
+        }
     }
 }
