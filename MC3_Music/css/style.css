@@ -46,3 +46,12 @@ body {
     color: #df691a;
     background-color: #ebebeb;
 }
+
+.createAccount {
+    float: right;
+}
+
+.btn {
+    background-color: #bf5a16;
+    width: 10px;
+}
