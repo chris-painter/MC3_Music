@@ -20,7 +20,7 @@ namespace MC3_Music.Models
         public string Title { get; set; }
         public string Artist { get; set; }
         public List<string> Songs { get; set; }
-        public Image CoverArt { get; set; }
+        //public Image CoverArt { get; set; }
         public Genres Genre { get; set; }
         public int Stock { get; set; }
         public int Rating { get; set; }
