@@ -4,15 +4,29 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MC3_Music.Models;
+using MC3_Music.Context;
 
 namespace MC3_Music.Controllers
 {
     public class MusicController : Controller
     {
+        private ApplicationDataContext _context;
+
+        public MusicController()
+        {
+            _context = new ApplicationDataContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         // GET: Music
         public ActionResult Index()
         {
-            return View();
+            var albums = _context.Albums.ToList();
+
+            return View(albums);
         }
 
         public ActionResult getAlbum()
