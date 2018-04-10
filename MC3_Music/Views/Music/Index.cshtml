@@ -21,23 +21,24 @@
     </div>
     <!-- /.row -->
     <div class="row">
+
+        @foreach (var album in Model)
+    {
         <div class="col-md-3 portfolio-item">
 
-            @foreach (var album in Model)
-            {
 
             <a href="@Url.Action("getAlbum", "Music")">
                 <img src="http://placehold.it/750x450" class="img-responsive">
             </a>
-                <div class="four-col-song">
-                    <p class="trackName">@album.Title</p>
-                    <p class="artistName">@album.Artist</p>
-                    <p class="albumName">@album.Stock.ToString()</p>
-                </div>
+            <div class="four-col-song">
+                <p class="albumName">@album.Title</p>
+                <p class="artistName">@album.Artist</p>
+                <p class="genre">@album.Genre</p>
+            </div>
+            </div>
 
             }
 
-        </div>
     </div>
 
     @*<div class="row">
