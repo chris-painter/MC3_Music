@@ -177,6 +177,18 @@
     <Compile Include="Migrations\201804102013108_InitialModel.Designer.cs">
       <DependentUpon>201804102013108_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804102026335_AddReleaseDate.cs" />
+    <Compile Include="Migrations\201804102026335_AddReleaseDate.Designer.cs">
+      <DependentUpon>201804102026335_AddReleaseDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804102038542_UpdateAlbumTable.cs" />
+    <Compile Include="Migrations\201804102038542_UpdateAlbumTable.Designer.cs">
+      <DependentUpon>201804102038542_UpdateAlbumTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804102040389_PopulateAlbumExample.cs" />
+    <Compile Include="Migrations\201804102040389_PopulateAlbumExample.Designer.cs">
+      <DependentUpon>201804102040389_PopulateAlbumExample.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -300,6 +312,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804102013108_InitialModel.resx">
       <DependentUpon>201804102013108_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804102026335_AddReleaseDate.resx">
+      <DependentUpon>201804102026335_AddReleaseDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804102038542_UpdateAlbumTable.resx">
+      <DependentUpon>201804102038542_UpdateAlbumTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804102040389_PopulateAlbumExample.resx">
+      <DependentUpon>201804102040389_PopulateAlbumExample.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

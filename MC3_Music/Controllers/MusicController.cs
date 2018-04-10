@@ -23,7 +23,7 @@ namespace MC3_Music.Controllers
         // GET: Music/Random
         public ActionResult Random()
         {
-            var album = new Album() { Title = "Thriller", Genre = Album.Genres.Rock, Artist = "Michael Jackson" };
+            var album = new Album() { Title = "Thriller", Genre = "Rock", Artist = "Michael Jackson" };
             return View(album);
         }
     }
