@@ -8,18 +8,6 @@ namespace MC3_Music.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Customers",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Email = c.String(nullable: false, maxLength: 255),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Password = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -98,7 +86,6 @@ namespace MC3_Music.Migrations
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Customers");
         }
     }
 }
