@@ -313,8 +313,11 @@ img {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
+  height: 300px;
   max-width: 100%;
-  height: auto;
+}
+.img-responsive-SingleAlbum{
+    height: 500px;
 }
 .img-rounded {
   border-radius: 0;

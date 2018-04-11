@@ -7,10 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">
-                Four Column Portfolio
-                <small>Search results for "[search text]"</small>
-            </h1>
+            <h1 class="page-header">Album Collection</h1>
             @*<ol class="breadcrumb">
                     <li>
                         <a href="index.html">Home</a>
@@ -28,7 +25,7 @@
 
 
             <a href="@Url.Action("SingleAlbum", "Music", new { id = album.Id } )">
-                <img src="http://placehold.it/750x450" class="img-responsive">
+                <img src="@album.ImageURL" class="img-responsive">
             </a>
             <div class="four-col-song">
                 <p class="albumName">@album.Title</p>

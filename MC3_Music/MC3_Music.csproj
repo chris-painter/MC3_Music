@@ -197,6 +197,18 @@
     <Compile Include="Migrations\201804111553578_PopulateSongs.Designer.cs">
       <DependentUpon>201804111553578_PopulateSongs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804111626019_AddImageURLToAlbum.cs" />
+    <Compile Include="Migrations\201804111626019_AddImageURLToAlbum.Designer.cs">
+      <DependentUpon>201804111626019_AddImageURLToAlbum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804111627527_UpdateImageURLS.cs" />
+    <Compile Include="Migrations\201804111627527_UpdateImageURLS.Designer.cs">
+      <DependentUpon>201804111627527_UpdateImageURLS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804111743429_PopulateAlbumsAndSongs.cs" />
+    <Compile Include="Migrations\201804111743429_PopulateAlbumsAndSongs.Designer.cs">
+      <DependentUpon>201804111743429_PopulateAlbumsAndSongs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -337,6 +349,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804111553578_PopulateSongs.resx">
       <DependentUpon>201804111553578_PopulateSongs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804111626019_AddImageURLToAlbum.resx">
+      <DependentUpon>201804111626019_AddImageURLToAlbum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804111627527_UpdateImageURLS.resx">
+      <DependentUpon>201804111627527_UpdateImageURLS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804111743429_PopulateAlbumsAndSongs.resx">
+      <DependentUpon>201804111743429_PopulateAlbumsAndSongs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
