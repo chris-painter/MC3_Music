@@ -1,4 +1,5 @@
-﻿
+﻿@model MC3_Music.ViewModels.SingleAlbumViewModel
+
 @{
     ViewBag.Title = "SingleAlbum";
 }
@@ -7,29 +8,33 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                [Album Name]
-                <small>[Arist Name]</small>
+                @Model.Album.Title
+                <small>@Model.Album.Artist</small>
             </h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-8">
-            <img src="http://placehold.it/750x500" class="img-responsive">
+        <div class="col-lg-6">
+            <img src="@Model.Album.ImageURL" class="img-responsive-SingleAlbum">
         </div>
 
-        <div class="col-lg-2">
-            <p>Release Date:</p>
-            <p>Genre:</p>
+        <div class="col-lg-3">
+            <p>Rating: @Model.Album.Rating / 5</p>
+            <p>Genre: @Model.Album.Genre</p>
             <h3>Tracks</h3>
             <ol>
-                <li>Lorem Ipsum</li>
-                <li>Dolor Sit Amet</li>
-                <li>Consectetur</li>
-                <li>Adipiscing Elit</li>
+                @foreach (var song in Model.Songs)
+                {
+                    if (song.album == Model.Album)
+                    {
+                        <li>@song.SongTitle</li>
+
+                    }
+                }
             </ol>
         </div>
         <div class="col-lg-2">
-        <button type="button" class="btn-checkout">Add to Cart</button>
+            <button type="button" class="btn-checkout">Add to Cart</button>
         </div>
 
     </div>

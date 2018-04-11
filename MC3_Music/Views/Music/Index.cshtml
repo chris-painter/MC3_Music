@@ -1,4 +1,5 @@
-﻿
+﻿@model List<MC3_Music.Models.Album>
+
 @{
     ViewBag.Title = "Index";
 }
@@ -6,10 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">
-                Four Column Portfolio
-                <small>Search results for "[search text]"</small>
-            </h1>
+            <h1 class="page-header">Album Collection</h1>
             @*<ol class="breadcrumb">
                     <li>
                         <a href="index.html">Home</a>
@@ -20,170 +18,191 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("getAlbum", "Music")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
-                </a>
-                <div class="four-col-song">
-                    <p class="trackName">[track]</p>
-                    <p class="artistName">[artist]</p>
-                    <p class="albumName">[album]</p>
-            
-            </div>
 
-        </div>
+        @foreach (var album in Model)
+    {
         <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("SingleItem")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
+
+
+            <a href="@Url.Action("SingleAlbum", "Music", new { id = album.Id } )">
+                <img src="@album.ImageURL" class="img-responsive">
             </a>
             <div class="four-col-song">
-                <p class="trackName">[track]</p>
-                <p class="artistName">[artist]</p>
-                <p class="albumName">[album]</p>
-
+                <p class="albumName">@album.Title</p>
+                <p class="artistName">@album.Artist</p>
+                <p class="genre">@album.Genre</p>
             </div>
-        </div>
-        <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("SingleItem")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
-            </a>
-            <div class="four-col-song">
-                <p class="trackName">[track]</p>
-                <p class="artistName">[artist]</p>
-                <p class="albumName">[album]</p>
-
             </div>
-        </div>
-        <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("SingleItem")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
-            </a>
-            <div class="four-col-song">
-                <p class="trackName">[track]</p>
-                <p class="artistName">[artist]</p>
-                <p class="albumName">[album]</p>
 
-            </div>
-        </div>
+            }
+
     </div>
-    <div class="row">
-        <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("SingleItem")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
-            </a>
-            <div class="four-col-song">
-                <p class="trackName">[track]</p>
-                <p class="artistName">[artist]</p>
-                <p class="albumName">[album]</p>
 
-            </div>
-        </div>
-        <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("SingleItem")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
-            </a>
-            <div class="four-col-song">
-                <p class="trackName">[track]</p>
-                <p class="artistName">[artist]</p>
-                <p class="albumName">[album]</p>
+    @*<div class="row">
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("getAlbum", "Music")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
 
-            </div>
-        </div>
-        <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("SingleItem")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
-            </a>
-            <div class="four-col-song">
-                <p class="trackName">[track]</p>
-                <p class="artistName">[artist]</p>
-                <p class="albumName">[album]</p>
+                    </div>
 
-            </div>
-        </div>
-        <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("SingleItem")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
-            </a>
-            <div class="four-col-song">
-                <p class="trackName">[track]</p>
-                <p class="artistName">[artist]</p>
-                <p class="albumName">[album]</p>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("SingleItem")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
 
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("SingleItem")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
-            </a>
-            <div class="four-col-song">
-                <p class="trackName">[track]</p>
-                <p class="artistName">[artist]</p>
-                <p class="albumName">[album]</p>
+                    </div>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("SingleItem")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
 
-            </div>
-        </div>
-        <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("SingleItem")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
-            </a>
-            <div class="four-col-song">
-                <p class="trackName">[track]</p>
-                <p class="artistName">[artist]</p>
-                <p class="albumName">[album]</p>
+                    </div>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("SingleItem")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
 
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("SingleItem")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
-            </a>
-            <div class="four-col-song">
-                <p class="trackName">[track]</p>
-                <p class="artistName">[artist]</p>
-                <p class="albumName">[album]</p>
+            <div class="row">
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("SingleItem")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
 
-            </div>
-        </div>
-        <div class="col-md-3 portfolio-item">
-            <a href="@Url.Action("SingleItem")">
-                <img src="http://placehold.it/750x450" class="img-responsive">
-            </a>
-            <div class="four-col-song">
-                <p class="trackName">[track]</p>
-                <p class="artistName">[artist]</p>
-                <p class="albumName">[album]</p>
+                    </div>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("SingleItem")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
 
+                    </div>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("SingleItem")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
+
+                    </div>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("SingleItem")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
+
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <hr>
-    <div class="row text-center">
-        <div class="col-lg-12">
-            <ul class="pagination">
-                <li>
-                    <a href="#">«</a>
-                </li>
-                <li class="active">
-                    <a href="#">1</a>
-                </li>
-                <li>
-                    <a href="#">2</a>
-                </li>
-                <li>
-                    <a href="#">3</a>
-                </li>
-                <li>
-                    <a href="#">4</a>
-                </li>
-                <li>
-                    <a href="#">5</a>
-                </li>
-                <li>
-                    <a href="#">»</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+            <div class="row">
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("SingleItem")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
+
+                    </div>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("SingleItem")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
+
+                    </div>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("SingleItem")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
+
+                    </div>
+                </div>
+                <div class="col-md-3 portfolio-item">
+                    <a href="@Url.Action("SingleItem")">
+                        <img src="http://placehold.it/750x450" class="img-responsive">
+                    </a>
+                    <div class="four-col-song">
+                        <p class="trackName">[track]</p>
+                        <p class="artistName">[artist]</p>
+                        <p class="albumName">[album]</p>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#">«</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">1</a>
+                        </li>
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">4</a>
+                        </li>
+                        <li>
+                            <a href="#">5</a>
+                        </li>
+                        <li>
+                            <a href="#">»</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>*@
