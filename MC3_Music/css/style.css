@@ -14,13 +14,13 @@ body {
     text-align: right;
 }
 
-.trackName {
+.albumName {
     font-size: 150%;
     margin: 0;
     font-weight: bold;
 }
 
-    .trackName:hover {
+    .albumeName:hover {
         text-decoration: underline;
     }
 
@@ -32,11 +32,11 @@ body {
         text-decoration: underline;
     }
 
-.albumName {
+.genre {
     margin: 0;
 }
 
-    .albumName:hover {
+    .genre:hover {
         text-decoration: underline;
     }
 
