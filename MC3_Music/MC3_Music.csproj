@@ -209,11 +209,16 @@
     <Compile Include="Migrations\201804111743429_PopulateAlbumsAndSongs.Designer.cs">
       <DependentUpon>201804111743429_PopulateAlbumsAndSongs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804111948156_PopulateSongs2.cs" />
+    <Compile Include="Migrations\201804111948156_PopulateSongs2.Designer.cs">
+      <DependentUpon>201804111948156_PopulateSongs2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Song.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -359,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804111743429_PopulateAlbumsAndSongs.resx">
       <DependentUpon>201804111743429_PopulateAlbumsAndSongs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804111948156_PopulateSongs2.resx">
+      <DependentUpon>201804111948156_PopulateSongs2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
