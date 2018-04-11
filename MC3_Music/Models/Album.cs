@@ -24,5 +24,6 @@ namespace MC3_Music.Models
         public int Stock { get; set; }
         //public DateTime DateReleased { get; set; }
         public int Rating { get; set; }
+        public double Price { get; set; }
     }
 }
