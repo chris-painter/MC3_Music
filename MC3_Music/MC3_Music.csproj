@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201804111743429_PopulateAlbumsAndSongs.Designer.cs">
       <DependentUpon>201804111743429_PopulateAlbumsAndSongs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804112203044_UpdateCustomerModel.cs" />
+    <Compile Include="Migrations\201804112203044_UpdateCustomerModel.Designer.cs">
+      <DependentUpon>201804112203044_UpdateCustomerModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -355,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804111743429_PopulateAlbumsAndSongs.resx">
       <DependentUpon>201804111743429_PopulateAlbumsAndSongs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804112203044_UpdateCustomerModel.resx">
+      <DependentUpon>201804112203044_UpdateCustomerModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

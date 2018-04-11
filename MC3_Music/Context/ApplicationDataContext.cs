@@ -16,6 +16,7 @@ namespace MC3_Music.Context
     {
         public DbSet<Album> Albums { get; set; }
         public DbSet<Song> Songs { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         public ApplicationDataContext()
             : base("DefaultConnection")
