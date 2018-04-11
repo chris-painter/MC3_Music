@@ -41,12 +41,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -115,6 +109,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -173,51 +173,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804102013108_InitialModel.cs" />
-    <Compile Include="Migrations\201804102013108_InitialModel.Designer.cs">
-      <DependentUpon>201804102013108_InitialModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804102026335_AddReleaseDate.cs" />
-    <Compile Include="Migrations\201804102026335_AddReleaseDate.Designer.cs">
-      <DependentUpon>201804102026335_AddReleaseDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804102038542_UpdateAlbumTable.cs" />
-    <Compile Include="Migrations\201804102038542_UpdateAlbumTable.Designer.cs">
-      <DependentUpon>201804102038542_UpdateAlbumTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804102040389_PopulateAlbumExample.cs" />
-    <Compile Include="Migrations\201804102040389_PopulateAlbumExample.Designer.cs">
-      <DependentUpon>201804102040389_PopulateAlbumExample.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804111502091_AddSongTable.cs" />
-    <Compile Include="Migrations\201804111502091_AddSongTable.Designer.cs">
-      <DependentUpon>201804111502091_AddSongTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804111553578_PopulateSongs.cs" />
-    <Compile Include="Migrations\201804111553578_PopulateSongs.Designer.cs">
-      <DependentUpon>201804111553578_PopulateSongs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804111626019_AddImageURLToAlbum.cs" />
-    <Compile Include="Migrations\201804111626019_AddImageURLToAlbum.Designer.cs">
-      <DependentUpon>201804111626019_AddImageURLToAlbum.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804111627527_UpdateImageURLS.cs" />
-    <Compile Include="Migrations\201804111627527_UpdateImageURLS.Designer.cs">
-      <DependentUpon>201804111627527_UpdateImageURLS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804111743429_PopulateAlbumsAndSongs.cs" />
-    <Compile Include="Migrations\201804111743429_PopulateAlbumsAndSongs.Designer.cs">
-      <DependentUpon>201804111743429_PopulateAlbumsAndSongs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
-    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Song.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="ViewModels\SingleAlbumViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap-theme.css" />
@@ -331,35 +291,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Music\Random.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804102013108_InitialModel.resx">
-      <DependentUpon>201804102013108_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804102026335_AddReleaseDate.resx">
-      <DependentUpon>201804102026335_AddReleaseDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804102038542_UpdateAlbumTable.resx">
-      <DependentUpon>201804102038542_UpdateAlbumTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804102040389_PopulateAlbumExample.resx">
-      <DependentUpon>201804102040389_PopulateAlbumExample.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804111502091_AddSongTable.resx">
-      <DependentUpon>201804111502091_AddSongTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804111553578_PopulateSongs.resx">
-      <DependentUpon>201804111553578_PopulateSongs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804111626019_AddImageURLToAlbum.resx">
-      <DependentUpon>201804111626019_AddImageURLToAlbum.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804111627527_UpdateImageURLS.resx">
-      <DependentUpon>201804111627527_UpdateImageURLS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804111743429_PopulateAlbumsAndSongs.resx">
-      <DependentUpon>201804111743429_PopulateAlbumsAndSongs.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
