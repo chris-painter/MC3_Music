@@ -50,15 +50,20 @@ namespace MC3_Music.Controllers
             return View(viewModel);
         }
 
-        public ActionResult getAlbum()
+        public ActionResult SingleAlbum()
         {
-            return View("SingleAlbum");
+            return View();
         }
 
+        //public ActionResult getAlbum()
+        //{
+        //    return View("SingleAlbum");
+        //}
+
         // GET: Music/Random
-        public ActionResult Random()
-        {
+        public ActionResult Random() {
             var album = new Album() { Title = "Thriller", Genre = "Rock", Artist = "Michael Jackson" };
+
             return View(album);
         }
 
