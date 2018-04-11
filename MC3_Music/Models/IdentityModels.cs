@@ -13,5 +13,4 @@ namespace MC3_Music.Models
         public string Email { get; set; }
 
     }
-
 }
