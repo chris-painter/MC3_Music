@@ -29,6 +29,18 @@ namespace MC3_Music.Controllers
             return View(albums);
         }
 
+        public ActionResult SingleAlbum(int id)
+        {
+            Album album = _context.Albums.SingleOrDefault(a => a.Id == id);
+
+            if(album == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(album);
+        }
+
         public ActionResult getAlbum()
         {
             return View("SingleAlbum");
@@ -40,5 +52,6 @@ namespace MC3_Music.Controllers
             var album = new Album() { Title = "Thriller", Genre = "Rock", Artist = "Michael Jackson" };
             return View(album);
         }
+
     }
 }
