@@ -26,7 +26,6 @@ namespace MC3_Music.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Customer> Customers { get; set; }
       
 
         public static ApplicationDbContext Create()
