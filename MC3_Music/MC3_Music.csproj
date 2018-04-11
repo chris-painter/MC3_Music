@@ -189,9 +189,14 @@
     <Compile Include="Migrations\201804102040389_PopulateAlbumExample.Designer.cs">
       <DependentUpon>201804102040389_PopulateAlbumExample.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804111502091_AddSongTable.cs" />
+    <Compile Include="Migrations\201804111502091_AddSongTable.Designer.cs">
+      <DependentUpon>201804111502091_AddSongTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Song.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -321,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804102040389_PopulateAlbumExample.resx">
       <DependentUpon>201804102040389_PopulateAlbumExample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804111502091_AddSongTable.resx">
+      <DependentUpon>201804111502091_AddSongTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
