@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using MC3_Music.Models;
 using MC3_Music.Context;
+using MC3_Music.ViewModels;
+using System.Data.Entity;
 
 namespace MC3_Music.Controllers
 {
@@ -31,14 +33,21 @@ namespace MC3_Music.Controllers
 
         public ActionResult SingleAlbum(int id)
         {
+            var songs = _context.Songs.ToList();
             Album album = _context.Albums.SingleOrDefault(a => a.Id == id);
 
-            if(album == null)
+            var viewModel = new SingleAlbumViewModel
+            {
+                Album = album,
+                Songs = songs
+            };
+
+            if (album == null)
             {
                 return HttpNotFound();
             }
 
-            return View(album);
+            return View(viewModel);
         }
 
         public ActionResult getAlbum()
