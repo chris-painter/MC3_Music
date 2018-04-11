@@ -50,10 +50,10 @@ namespace MC3_Music.Controllers
             return View(viewModel);
         }
 
-        public ActionResult SingleAlbum()
-        {
-            return View();
-        }
+        //public ActionResult SingleAlbum()
+        //{
+        //    return View();
+        //}
 
         //public ActionResult getAlbum()
         //{
