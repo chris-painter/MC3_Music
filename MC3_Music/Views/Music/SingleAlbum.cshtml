@@ -23,8 +23,8 @@
             </div>
 
             <div class="col-lg-3">
-                <p>Rating: @Model.Album.Rating / 5</p>
-                <p>Genre: @Model.Album.Genre</p>
+                <h3>Rating: @Model.Album.Rating / 5</h3>
+                <h3>Genre: @Model.Album.Genre</h3>
                 <h3>Tracks</h3>
                 <ol>
                     @foreach (var song in Model.Songs)
@@ -38,7 +38,9 @@
                 </ol>
             </div>
             <div class="col-lg-2">
-                <button type="button" class="btn-checkout">Add to Cart</button>
+                <a href="@Url.Action("AddToCart", "Checkout", new { id = Model.Album.Id } )">
+                    <button type="button" class="btn-checkout">Add to Cart</button>
+                    </a>
             </div>
 
         </div>
