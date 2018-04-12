@@ -6,61 +6,65 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                @Model.Album.Title
-                <small>@Model.Album.Artist</small>
-            </h1>
-        </div>
+            <div class="col-lg-10">
+                <h1>
+                    @Model.Album.Title
+                    <small>@Model.Album.Artist</small>
+                </h1>
+                </div>
+                <div class="col-lg-2">
+                    <h1>$@Model.Album.Price.ToString()</h1>
+                </div>
     </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <img src="@Model.Album.ImageURL" class="img-responsive-SingleAlbum">
-        </div>
+    <hr class="header-line"/>
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="@Model.Album.ImageURL" class="img-responsive-SingleAlbum">
+            </div>
 
-        <div class="col-lg-3">
-            <p>Rating: @Model.Album.Rating / 5</p>
-            <p>Genre: @Model.Album.Genre</p>
-            <h3>Tracks</h3>
-            <ol>
-                @foreach (var song in Model.Songs)
+            <div class="col-lg-3">
+                <p>Rating: @Model.Album.Rating / 5</p>
+                <p>Genre: @Model.Album.Genre</p>
+                <h3>Tracks</h3>
+                <ol>
+                    @foreach (var song in Model.Songs)
                 {
                     if (song.album == Model.Album)
                     {
                         <li>@song.SongTitle</li>
 
-                    }
                 }
-            </ol>
-        </div>
-        <div class="col-lg-2">
-            <button type="button" class="btn-checkout">Add to Cart</button>
-        </div>
+            }
+                </ol>
+            </div>
+            <div class="col-lg-2">
+                <button type="button" class="btn-checkout">Add to Cart</button>
+            </div>
 
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">Related Albums</h3>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img src="http://placehold.it/500x300" class="img-responsive img-customer">
+                </a>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img src="http://placehold.it/500x300" class="img-responsive img-customer">
+                </a>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img src="http://placehold.it/500x300" class="img-responsive img-customer">
+                </a>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img src="http://placehold.it/500x300" class="img-responsive img-customer">
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <h3 class="page-header">Related Albums</h3>
-        </div>
-        <div class="col-sm-3 col-xs-6">
-            <a href="#">
-                <img src="http://placehold.it/500x300" class="img-responsive img-customer">
-            </a>
-        </div>
-        <div class="col-sm-3 col-xs-6">
-            <a href="#">
-                <img src="http://placehold.it/500x300" class="img-responsive img-customer">
-            </a>
-        </div>
-        <div class="col-sm-3 col-xs-6">
-            <a href="#">
-                <img src="http://placehold.it/500x300" class="img-responsive img-customer">
-            </a>
-        </div>
-        <div class="col-sm-3 col-xs-6">
-            <a href="#">
-                <img src="http://placehold.it/500x300" class="img-responsive img-customer">
-            </a>
-        </div>
-    </div>
-</div>
