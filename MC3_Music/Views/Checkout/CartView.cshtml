@@ -1,9 +1,14 @@
-﻿
+﻿@model List<MC3_Music.Models.Transaction>
+
 @{
     ViewBag.Title = "CartView";
 }
 
 <h2>CartView</h2>
+@foreach(var t in Model)
+{
+<h1>@t.Album.Artist</h1>
+}
 <div class="col-md-12">
     <table class="table">
         <thead>
