@@ -16,10 +16,16 @@ namespace MC3_Music.Context
     {
         public DbSet<Album> Albums { get; set; }
         public DbSet<Song> Songs { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         public ApplicationDataContext()
-            : base("DefaultConnection")
+            : base("DefaultConnection", throwIfV1Schema: false)
         { }
+
+        public static ApplicationDataContext Create()
+        {
+            return new ApplicationDataContext();
+        }
 
         //public System.Data.Entity.DbSet<AppUser> AppUsers { get; set; }
     }
