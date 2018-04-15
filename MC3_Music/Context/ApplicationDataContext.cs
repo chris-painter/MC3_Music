@@ -8,7 +8,7 @@ using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
+
 
 namespace MC3_Music.Context
 {
@@ -17,11 +17,17 @@ namespace MC3_Music.Context
         public DbSet<Album> Albums { get; set; }
         public DbSet<Song> Songs { get; set; }
         public DbSet<Customer> Customers { get; set; }
+
         public DbSet<Transaction> Transactions { get; set; }
 
         public ApplicationDataContext()
-            : base("DefaultConnection")
+            : base("DefaultConnection", throwIfV1Schema: false)
         { }
+
+        public static ApplicationDataContext Create()
+        {
+            return new ApplicationDataContext();
+        }
 
         //public System.Data.Entity.DbSet<AppUser> AppUsers { get; set; }
     }
