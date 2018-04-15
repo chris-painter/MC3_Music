@@ -203,11 +203,24 @@
     <Compile Include="Migrations\201804111743429_PopulateAlbumsAndSongs.Designer.cs">
       <DependentUpon>201804111743429_PopulateAlbumsAndSongs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804112203044_UpdateCustomerModel.cs" />
+    <Compile Include="Migrations\201804112203044_UpdateCustomerModel.Designer.cs">
+      <DependentUpon>201804112203044_UpdateCustomerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804121630027_AddTransactionsTable.cs" />
+    <Compile Include="Migrations\201804121630027_AddTransactionsTable.Designer.cs">
+      <DependentUpon>201804121630027_AddTransactionsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804152218258_migrate.cs" />
+    <Compile Include="Migrations\201804152218258_migrate.Designer.cs">
+      <DependentUpon>201804152218258_migrate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Song.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -358,6 +371,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804111743429_PopulateAlbumsAndSongs.resx">
       <DependentUpon>201804111743429_PopulateAlbumsAndSongs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804112203044_UpdateCustomerModel.resx">
+      <DependentUpon>201804112203044_UpdateCustomerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804121630027_AddTransactionsTable.resx">
+      <DependentUpon>201804121630027_AddTransactionsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804152218258_migrate.resx">
+      <DependentUpon>201804152218258_migrate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
