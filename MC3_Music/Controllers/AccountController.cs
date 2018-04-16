@@ -1,5 +1,4 @@
-﻿using MC3_Music.App_Start;
-using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,51 +8,52 @@ using System.Web.Mvc;
 using MC3_Music.ViewModels;
 using MC3_Music.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
 
 namespace MC3_Music.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-            private AppSignInManager _signInManager;
-            private AppUserManager _userManager;
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
 
-            public AccountController()
-            {
-            }
+        public AccountController()
+        {
+        }
 
-            public AccountController(AppUserManager userManager, AppSignInManager signInManager)
-            {
-                UserManager = userManager;
-                SignInManager = signInManager;
-            }
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        {
+            UserManager = userManager;
+            SignInManager = signInManager;
+        }
 
-            public AppSignInManager SignInManager
+        public ApplicationSignInManager SignInManager
+        {
+            get
             {
-                get
-                {
-                    return _signInManager ?? HttpContext.GetOwinContext().Get<AppSignInManager>();
-                }
-                private set
-                {
-                    _signInManager = value;
-                }
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
+            private set
+            {
+                _signInManager = value;
+            }
+        }
 
-            public AppUserManager UserManager
+        public ApplicationUserManager UserManager
+        {
+            get
             {
-                get
-                {
-                    return _userManager ?? HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
-                }
-                private set
-                {
-                    _userManager = value;
-                }
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
-            // GET: Account
-            //this is the second conflict comment
-            public ActionResult Index()
+            private set
+            {
+                _userManager = value;
+            }
+        }
+        // GET: Account
+        //this is the second conflict comment
+        public ActionResult Index()
         {
             return View();
         }
@@ -114,7 +114,13 @@ namespace MC3_Music.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new AppUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -175,6 +181,29 @@ namespace MC3_Music.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        // POST: /Account/LogOff
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            AuthenticationManager.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
+        #region Helpers
+        // Used for XSRF protection when adding external logins
+        private const string XsrfKey = "XsrfId";
+
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
+        #endregion
+
         // public ActionResult Login()
         // {
         //     return View();
