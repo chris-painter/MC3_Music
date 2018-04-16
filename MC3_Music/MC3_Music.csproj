@@ -211,13 +211,9 @@
     <Compile Include="Migrations\201804121630027_AddTransactionsTable.Designer.cs">
       <DependentUpon>201804121630027_AddTransactionsTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804121646443_UpdateAlbumsWithPrice.cs" />
-    <Compile Include="Migrations\201804121646443_UpdateAlbumsWithPrice.Designer.cs">
-      <DependentUpon>201804121646443_UpdateAlbumsWithPrice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804160003277_SyncDB.cs" />
-    <Compile Include="Migrations\201804160003277_SyncDB.Designer.cs">
-      <DependentUpon>201804160003277_SyncDB.cs</DependentUpon>
+    <Compile Include="Migrations\201804152248069_MergeUdate.cs" />
+    <Compile Include="Migrations\201804152248069_MergeUdate.Designer.cs">
+      <DependentUpon>201804152248069_MergeUdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
@@ -382,11 +378,8 @@
     <EmbeddedResource Include="Migrations\201804121630027_AddTransactionsTable.resx">
       <DependentUpon>201804121630027_AddTransactionsTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804121646443_UpdateAlbumsWithPrice.resx">
-      <DependentUpon>201804121646443_UpdateAlbumsWithPrice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804160003277_SyncDB.resx">
-      <DependentUpon>201804160003277_SyncDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804152248069_MergeUdate.resx">
+      <DependentUpon>201804152248069_MergeUdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

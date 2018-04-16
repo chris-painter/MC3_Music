@@ -7,13 +7,13 @@ namespace MC3_Music.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UpdateAlbumsWithPrice : IMigrationMetadata
+    public sealed partial class migrate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateAlbumsWithPrice));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(migrate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804121646443_UpdateAlbumsWithPrice"; }
+            get { return "201804152218258_migrate"; }
         }
         
         string IMigrationMetadata.Source
