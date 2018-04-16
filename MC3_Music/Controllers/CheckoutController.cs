@@ -5,13 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using MC3_Music.Models;
 using MC3_Music.Context;
+using MC3_Music.ViewModels;
 
 namespace MC3_Music.Controllers
 {
     public class CheckoutController : Controller
     {
         private ApplicationDataContext _context;
-        List<Transaction> transactionCart = new List<Transaction>();
+        public List<Transaction> transactionCart = new List<Transaction>();
 
 
         public CheckoutController()
@@ -37,14 +38,25 @@ namespace MC3_Music.Controllers
         public ActionResult AddToCart(int id)
         {
             Album album = _context.Albums.SingleOrDefault(a => a.Id == id);
-            Transaction transaction = new Transaction()
+            Cart cartItem = new Cart()
             {
                 Album = album,
-                TransactionDate = DateTime.Now
+                Quantity = 1          
             };
-            transactionCart.Add(transaction);
-            
-            return View("CartView", transactionCart);
+
+            _context.Cart.Add(cartItem);
+            _context.SaveChanges();
+
+            var albums = _context.Albums.ToList();
+            var cart = _context.Cart.ToList();
+
+            var viewModel = new ShoppingCartViewModel
+            {
+                Albums = albums,
+                Cart = cart
+            };
+           
+            return View("CartView", viewModel);
         }
     }
 }

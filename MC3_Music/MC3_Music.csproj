@@ -231,8 +231,17 @@
     <Compile Include="Migrations\201804152248069_MergeUdate.Designer.cs">
       <DependentUpon>201804152248069_MergeUdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804161743461_addCartTable.cs" />
+    <Compile Include="Migrations\201804161743461_addCartTable.Designer.cs">
+      <DependentUpon>201804161743461_addCartTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804161752563_updateCartTable.cs" />
+    <Compile Include="Migrations\201804161752563_updateCartTable.Designer.cs">
+      <DependentUpon>201804161752563_updateCartTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Song.cs" />
@@ -240,6 +249,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="ViewModels\SingleAlbumViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -396,6 +406,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804152248069_MergeUdate.resx">
       <DependentUpon>201804152248069_MergeUdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804161743461_addCartTable.resx">
+      <DependentUpon>201804161743461_addCartTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804161752563_updateCartTable.resx">
+      <DependentUpon>201804161752563_updateCartTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

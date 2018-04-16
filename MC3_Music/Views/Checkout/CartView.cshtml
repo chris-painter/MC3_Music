@@ -1,14 +1,12 @@
-﻿@model List<MC3_Music.Models.Transaction>
+﻿@model MC3_Music.ViewModels.ShoppingCartViewModel
 
 @{
     ViewBag.Title = "CartView";
 }
 
 <h2>CartView</h2>
-@foreach(var t in Model)
-{
-<h1>@t.Album.Artist</h1>
-}
+
+
 <div class="col-md-12">
     <table class="table">
         <thead>
@@ -19,7 +17,20 @@
                 <th>&nbsp;</th>
             </tr>
         </thead>
+        @foreach(var cartItem in Model.Cart)
+        {
         <tr>
+            <td class="albumColumn">@cartItem.Album.Title</td>
+            <td class="quantityColumn">@cartItem.Quantity</td>
+            <td class="priceColumn">$@cartItem.Album.Price</td>
+            <td>
+                <button type="button" class="btn-default">Remove</button>
+                <button type="button" class="btn-default">Edit</button>
+
+            </td>
+        </tr>
+        }
+        @*<tr>
             <td class="albumColumn">Album Name</td>
             <td class="quantityColumn">1</td>
             <td class="priceColumn">$20</td>
@@ -58,7 +69,7 @@
                 <button type="button" class="btn-default">Edit</button>
 
             </td>
-        </tr>
+        </tr>*@
     </table>
     <div class="col-md-10">
         <button type="submit" class="btn-checkout">Checkout</button>

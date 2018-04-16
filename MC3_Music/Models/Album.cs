@@ -23,7 +23,6 @@ namespace MC3_Music.Models
         public string Genre { get; set; }
         public int Stock { get; set; }
         public double Price { get; set; }
-        //public DateTime DateReleased { get; set; }
         public int Rating { get; set; }
 
     }
