@@ -13,7 +13,7 @@ using Microsoft.Owin.Security;
 using MC3_Music.Models;
 using MC3_Music.Context;
 
-namespace MC3_Music.App_Start
+namespace MC3_Music
 {
         public class EmailService : IIdentityMessageService
         {
@@ -34,18 +34,18 @@ namespace MC3_Music.App_Start
         }
 
         // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
-        public class AppUserManager : UserManager<AppUser>
+        public class ApplicationUserManager : UserManager<ApplicationUser>
         {
-            public AppUserManager(IUserStore<AppUser> store)
+            public ApplicationUserManager(IUserStore<ApplicationUser> store)
                 : base(store)
             {
             }
 
-            public static AppUserManager Create(IdentityFactoryOptions<AppUserManager> options, IOwinContext context)
+            public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
             {
-                var manager = new AppUserManager(new UserStore<AppUser>(context.Get<ApplicationDataContext>()));
+                var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDataContext>()));
                 // Configure validation logic for usernames
-                manager.UserValidator = new UserValidator<AppUser>(manager)
+                manager.UserValidator = new UserValidator<ApplicationUser>(manager)
                 {
                     AllowOnlyAlphanumericUserNames = false,
                     RequireUniqueEmail = true
@@ -68,11 +68,11 @@ namespace MC3_Music.App_Start
 
                 // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
                 // You can write your own provider and plug it in here.
-                manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<AppUser>
+                manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
                 {
                     MessageFormat = "Your security code is {0}"
                 });
-                manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<AppUser>
+                manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<ApplicationUser>
                 {
                     Subject = "Security Code",
                     BodyFormat = "Your security code is {0}"
@@ -83,28 +83,28 @@ namespace MC3_Music.App_Start
                 if (dataProtectionProvider != null)
                 {
                     manager.UserTokenProvider =
-                        new DataProtectorTokenProvider<AppUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                        new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
                 }
                 return manager;
             }
         }
 
         // Configure the application sign-in manager which is used in this application.
-        public class AppSignInManager : SignInManager<AppUser, string>
+        public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
         {
-            public AppSignInManager(AppUserManager userManager, IAuthenticationManager authenticationManager)
+            public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
                 : base(userManager, authenticationManager)
             {
             }
 
-            public override Task<ClaimsIdentity> CreateUserIdentityAsync(AppUser user)
+            public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)
             {
-                return user.GenerateUserIdentityAsync((AppUserManager)UserManager);
+                return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
             }
 
-            public static AppSignInManager Create(IdentityFactoryOptions<AppSignInManager> options, IOwinContext context)
+            public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
             {
-                return new AppSignInManager(context.GetUserManager<AppUserManager>(), context.Authentication);
+                return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
             }
         }
     }

@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Register";
-    
+
 }
 
 @*@*<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">*@
@@ -10,37 +10,76 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
 <section id="Register">
-        <div class="row">
-            <div class="col-xs-4" align="left">
-                <div class="createAccount">
-                    <h1>Create a new account</h1>
-                    <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
-                        <div class="form-group">
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="key" class="sr-only">Password</label>
-                            <input type="password" name="key" id="key" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="key" class="sr-only">Re-enter Password</label>
-                            <input type="password" name="key" id="key" class="form-control" placeholder="Re-enter Password">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only">First Name</label>
-                            <input id="firstName" class="form-control" placeholder="First Name">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only">Last Name</label>
-                            <input id="lastName" class="form-control" placeholder="Last Name">
-                        </div>*
-                        <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Create Account">
-                    </form>
+    <div class="container">
+        <div class="col-md-4" align="left">
+            <div class="createAccount">
+                <h1>Create a new account</h1>
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <input type="submit" class="btn btn-default" value="Register" />
+                    </div>
+                    @*<form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                            <div class="form-group">
+                                <label for="email" class="sr-only">Email</label>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="key" class="sr-only">Password</label>
+                                <input type="password" name="key" id="key" class="form-control" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="key" class="sr-only">Re-enter Password</label>
+                                <input type="password" name="key" id="key" class="form-control" placeholder="Re-enter Password">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">First Name</label>
+                                <input id="firstName" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Last Name</label>
+                                <input id="lastName" class="form-control" placeholder="Last Name">
+                            </div>*
+                            <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Create Account">
+                        </form>*@
                     <hr>
                 </div>
             </div>
         </div>
-    
+
 </section>
+}
