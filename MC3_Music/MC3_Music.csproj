@@ -214,9 +214,10 @@
     <Compile Include="Migrations\201804121646443_UpdateAlbumsWithPrice.cs" />
     <Compile Include="Migrations\201804121646443_UpdateAlbumsWithPrice.Designer.cs">
       <DependentUpon>201804121646443_UpdateAlbumsWithPrice.cs</DependentUpon>
-    <Compile Include="Migrations\201804152218258_migrate.cs" />
-    <Compile Include="Migrations\201804152218258_migrate.Designer.cs">
-      <DependentUpon>201804152218258_migrate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804160003277_SyncDB.cs" />
+    <Compile Include="Migrations\201804160003277_SyncDB.Designer.cs">
+      <DependentUpon>201804160003277_SyncDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
@@ -384,8 +385,8 @@
     <EmbeddedResource Include="Migrations\201804121646443_UpdateAlbumsWithPrice.resx">
       <DependentUpon>201804121646443_UpdateAlbumsWithPrice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804152218258_migrate.resx">
-      <DependentUpon>201804152218258_migrate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804160003277_SyncDB.resx">
+      <DependentUpon>201804160003277_SyncDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
