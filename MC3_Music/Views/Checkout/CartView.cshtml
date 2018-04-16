@@ -17,62 +17,70 @@
                 <th>&nbsp;</th>
             </tr>
         </thead>
-        @foreach(var cartItem in Model.Cart)
+        @if (Model.Cart != null)
         {
-        <tr>
-            <td class="albumColumn">@cartItem.Album.Title</td>
-            <td class="quantityColumn">@cartItem.Quantity</td>
-            <td class="priceColumn">$@cartItem.Album.Price</td>
-            <td>
-                <button type="button" class="btn-default">Remove</button>
-                <button type="button" class="btn-default">Edit</button>
-
-            </td>
-        </tr>
+            foreach (var cartItem in Model.Cart)
+            {
+                <tr>
+                    <td class="albumColumn">@cartItem.Album.Title</td>
+                    <td class="quantityColumn">@cartItem.Quantity</td>
+                    <td class="priceColumn">$@cartItem.Album.Price</td>
+                    <td>
+                        <a href="@Url.Action("RemoveAlbum", "Checkout", new { id = cartItem.Id } )">
+                            <button type="button" class="btn-default">Remove</button>
+                        </a>
+                        <button type="button" class="btn-default">Edit</button>
+                    </td>
+                </tr>
+            }
         }
-        @*<tr>
-            <td class="albumColumn">Album Name</td>
-            <td class="quantityColumn">1</td>
-            <td class="priceColumn">$20</td>
-            <td>
-                <button type="button" class="btn-default">Remove</button>
-                <button type="button" class="btn-default">Edit</button>
 
-            </td>
-        </tr>
-        <tr>
-            <td class="albumColumn">Album Name</td>
-            <td class="quantityColumn">1</td>
-            <td class="priceColumn">$20</td>
-            <td>
-                <button type="button" class="btn-default">Remove</button>
-                <button type="button" class="btn-default">Edit</button>
-
-            </td>
-        </tr>
-        <tr>
-            <td class="albumColumn">Album Name</td>
-            <td class="quantityColumn">1</td>
-            <td class="priceColumn">$20</td>
-            <td>
-                <button type="button" class="btn-default">Remove</button>
-                <button type="button" class="btn-default">Edit</button>
-
-            </td>
-        </tr>
-        <tr>
-            <td class="albumColumn">Album Name</td>
-            <td class="quantityColumn">1</td>
-            <td class="priceColumn">$20</td>
-            <td>
-                <button type="button" class="btn-default">Remove</button>
-                <button type="button" class="btn-default">Edit</button>
-
-            </td>
-        </tr>*@
     </table>
     <div class="col-md-10">
-        <button type="submit" class="btn-checkout">Checkout</button>
+        <a href="@Url.Action("MoveToCheckOut", "Checkout")">
+            <button type="submit" class="btn-checkout">Checkout</button>
+        </a>
     </div>
 </div>
+@*<tr>
+        <td class="albumColumn">Album Name</td>
+        <td class="quantityColumn">1</td>
+        <td class="priceColumn">$20</td>
+        <td>
+            <button type="button" class="btn-default">Remove</button>
+            <button type="button" class="btn-default">Edit</button>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="albumColumn">Album Name</td>
+        <td class="quantityColumn">1</td>
+        <td class="priceColumn">$20</td>
+        <td>
+            <button type="button" class="btn-default">Remove</button>
+            <button type="button" class="btn-default">Edit</button>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="albumColumn">Album Name</td>
+        <td class="quantityColumn">1</td>
+        <td class="priceColumn">$20</td>
+        <td>
+            <button type="button" class="btn-default">Remove</button>
+            <button type="button" class="btn-default">Edit</button>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="albumColumn">Album Name</td>
+        <td class="quantityColumn">1</td>
+        <td class="priceColumn">$20</td>
+        <td>
+            <button type="button" class="btn-default">Remove</button>
+            <button type="button" class="btn-default">Edit</button>
+
+        </td>
+    </tr>*@
+
 

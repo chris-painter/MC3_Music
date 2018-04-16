@@ -30,9 +30,18 @@ namespace MC3_Music.Controllers
             return View();
         }
 
-        public ActionResult CartView(List<Transaction> cart)
+        public ActionResult CartView()
         {
-            return View();
+            var albums = _context.Albums.ToList();
+            var cart = _context.Cart.ToList();
+
+            var viewModel = new ShoppingCartViewModel
+            {
+                Albums = albums,
+                Cart = cart
+            };
+
+            return View("CartView", viewModel);
         }
 
         public ActionResult AddToCart(int id)
@@ -44,6 +53,7 @@ namespace MC3_Music.Controllers
                 Quantity = 1          
             };
 
+            album.Stock--;
             _context.Cart.Add(cartItem);
             _context.SaveChanges();
 
@@ -55,8 +65,49 @@ namespace MC3_Music.Controllers
                 Albums = albums,
                 Cart = cart
             };
-           
+
             return View("CartView", viewModel);
         }
+
+        public ActionResult RemoveAlbum(int id)
+        {
+            var cartItem = _context.Cart.SingleOrDefault(a => a.Id == id);
+
+            Album album = _context.Albums.SingleOrDefault(a => a.Id == cartItem.Album_Id);
+            album.Stock++;
+
+            _context.Cart.Remove(cartItem);
+            _context.SaveChanges();
+
+            var albums = _context.Albums.ToList();
+            var cart = _context.Cart.ToList();
+
+            var viewModel = new ShoppingCartViewModel
+            {
+                Albums = albums,
+                Cart = cart
+            };
+
+            return View("CartView", viewModel);
+        }
+
+        public ActionResult MoveToCheckOut()
+        {
+            var cart = _context.Cart.ToList();
+            double Total = 0;
+            foreach (var item in cart)
+            {
+                var album = _context.Albums.SingleOrDefault(a => a.Id == item.Album_Id);
+
+                Total = Total + album.Price;
+            }
+            return View("CartCheckout", Total);
+        }
+
+
+
+
+
+
     }
 }

@@ -239,6 +239,14 @@
     <Compile Include="Migrations\201804161752563_updateCartTable.Designer.cs">
       <DependentUpon>201804161752563_updateCartTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804161855224_syncCart.cs" />
+    <Compile Include="Migrations\201804161855224_syncCart.Designer.cs">
+      <DependentUpon>201804161855224_syncCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804162033520_AlbumForeignKey.cs" />
+    <Compile Include="Migrations\201804162033520_AlbumForeignKey.Designer.cs">
+      <DependentUpon>201804162033520_AlbumForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -253,6 +261,10 @@
     <Compile Include="ViewModels\SingleAlbumViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-MC3_Music-20140225031045.mdf" />
+    <Content Include="App_Data\aspnet-MC3_Music-20140225031045_log.ldf">
+      <DependentUpon>aspnet-MC3_Music-20140225031045.mdf</DependentUpon>
+    </Content>
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -281,9 +293,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -412,6 +422,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804161752563_updateCartTable.resx">
       <DependentUpon>201804161752563_updateCartTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804161855224_syncCart.resx">
+      <DependentUpon>201804161855224_syncCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804162033520_AlbumForeignKey.resx">
+      <DependentUpon>201804162033520_AlbumForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
