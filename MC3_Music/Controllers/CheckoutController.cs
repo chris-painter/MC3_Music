@@ -47,14 +47,31 @@ namespace MC3_Music.Controllers
         public ActionResult AddToCart(int id)
         {
             Album album = _context.Albums.SingleOrDefault(a => a.Id == id);
-            Cart cartItem = new Cart()
+            var c = _context.Cart.ToList();
+            bool match = false;
+            foreach (var e in c)
             {
-                Album = album,
-                Quantity = 1          
-            };
-
+                if (album.Id == e.Album_Id)
+                {
+                    e.Quantity++;
+                    match = true;
+                    break;
+                }
+                else { }
+            }
+            if(match == false)
+            {
+                Cart cartItem = new Cart()
+                {
+                    Album = album,
+                    Album_Id = album.Id,
+                    Quantity = 1
+                };
+                _context.Cart.Add(cartItem);
+            }
+            else { }
+            
             album.Stock--;
-            _context.Cart.Add(cartItem);
             _context.SaveChanges();
 
             var albums = _context.Albums.ToList();
@@ -99,12 +116,29 @@ namespace MC3_Music.Controllers
             {
                 var album = _context.Albums.SingleOrDefault(a => a.Id == item.Album_Id);
 
-                Total = Total + album.Price;
+                Total = Total + (album.Price * item.Quantity);
             }
             return View("CartCheckout", Total);
         }
 
+        public ActionResult Checkout()
+        {
+            var cart = _context.Cart.ToList();
+            foreach(var c in cart)
+            {
+                Transaction t = new Transaction
+                {
+                    TransactionDate = DateTime.Now,
+                    Quantity = 1,
+                    Album_Id = c.Album_Id,
+                };
 
+                _context.Transactions.Add(t);
+                _context.Cart.Remove(c);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index", "Home");
+        }
 
 
 

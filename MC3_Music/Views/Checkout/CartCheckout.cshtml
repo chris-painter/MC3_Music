@@ -3,79 +3,108 @@
     ViewBag.Title = "CartCheckout";
 }
 
-    <div class="col-lg-6">
-        <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4" align="left">
-                <div class="checkout">
-                    <div class="form-group">
-                        <label>Name on Card</label>
-                        <input id="firstName" class="form-control" placeholder="First Name">
-                    </div>
-                    <div class="form-group">
-                        <label>Credit Card Type</label>
-                        <select class="form-control" id="ccType">
-                            <option>MasterCard</option>
-                            <option>Discover</option>
-                            <option>Visa</option>
-                            <option>American Express</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Credit Card Number</label>
-                        <input id="ccNumber" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX">
-                    </div>
-                    <div class="form-group">
-                        <label>CVV</label>
-                        <input id="cvv" class="form-control" placeholder="XXX">
-                    </div>
-                    <div class="form-group">
-                        <label>Expiration Date</label>
-                        <select class="form-control" id="expireMonth">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" id="expireMonth">
-                            <option>2018</option>
-                            <option>2019</option>
-                            <option>2020</option>
-                            <option>2021</option>
-                            <option>2022</option>
-                            <option>2023</option>
-                            <option>2024</option>
-                            <option>2025</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com">
-                    </div>
-                    <input type="submit" id="btn-checkout" class="btn btn-custom btn-lg btn-block" value="Checkout">
-                    <hr>
-                </div>
+<div class="col-md-4">
+    <div class="row" style="margin-left: 5px;">
+        @*<div class="col-lg-4" align="left">*@
+        <div class="checkout">
+            <div class="form-group">
+                <h3><b>Payment Information</b></h3>
+                <label>Name on Card</label>
+                <input id="firstName" class="form-control" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <label>Credit Card Type</label>
+                <select class="form-control" id="ccType">
+                    <option>MasterCard</option>
+                    <option>Discover</option>
+                    <option>Visa</option>
+                    <option>American Express</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Credit Card Number</label>
+                <input id="ccNumber" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX">
+            </div>
+            <div class="form-group">
+                <label>CVV</label>
+                <input id="cvv" class="form-control" placeholder="XXX">
+            </div>
+            <div class="form-group">
+                <label>Expiration Date</label>
+                <select class="form-control" id="expireMonth">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" id="expireMonth">
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com">
             </div>
         </div>
     </div>
+</div>
+@*</div>*@
+<div class="col-lg-4">
+    <div class="form-group">
+        <h3><b>Billing Address</b></h3>
+        <input id="addressLine1" class="form-control" placeholder="Address Line 1">
+        <input id="addressLine2" class="form-control" placeholder="Address Line 2">
 
-    <div class="col-lg-6">
-        <h1 style="font-weight: bold">Summary</h1>
-        <h3>Total: $@Model</h3>
-        @{
-            double tax = @Model * .09;
-            <h3>Tax: $@Math.Round(tax, 2).ToString("0.00")</h3>
-            double finalTotal = Model + tax;
-            
-            <h2>Total: $@Math.Round(finalTotal, 2).ToString("0.00")</h2>
-        }
+        <label>City</label>
+        <input id="city" class="form-control" placeholder="City" />
+        <label>State</label>
+        <input id="state" class="form-control" placeholder="State" />
+        <label>Zip Code</label>
+        <input id="zip" class="form-control" placeholder="Zip Code" />
     </div>
+    <div class="form-group">
+        <h3><b>Shipping Address</b></h3>
+        <input id="ShipAddressLine1" class="form-control" placeholder="Address Line 1">
+        <input id="ShipAddressLine2" class="form-control" placeholder="Address Line 2">
+
+        <label>City</label>
+        <input id="ShipCity" class="form-control" placeholder="City" />
+        <label>State</label>
+        <input id="ShipState" class="form-control" placeholder="State" />
+        <label>Zip Code</label>
+        <input id="ShipZip" class="form-control" placeholder="Zip Code" />
+    </div>
+</div>
+<div class="col-lg-4" style="text-align: right">
+    <h1 style="font-weight: bold">Summary</h1>
+    <h3>Total: $@Model</h3>
+    @{
+        double tax = @Model * .09;
+        <h3>Tax: $@Math.Round(tax, 2).ToString("0.00")</h3>
+        double finalTotal = Model + tax;
+
+        <h2>Total: $@Math.Round(finalTotal, 2).ToString("0.00")</h2>
+    }
+    <a href="@Url.Action("Checkout", "Checkout")">
+        <input type="submit" id="btn-checkout" class="btn btn-custom btn-lg btn-block" value="Checkout">
+    </a>
+</div>
+<div class="col-lg-12">
+    <hr />
+</div>
