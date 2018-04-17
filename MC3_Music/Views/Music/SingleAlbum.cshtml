@@ -38,9 +38,17 @@
                 </ol>
             </div>
             <div class="col-lg-2">
+                <div class="form-group">
+                    <label>Credit Card Type</label>
+                    <select class="form-control" id="ccType">
+                        <option>Large</option>
+                        <option>Medium</option>
+                        <option>Small</option>
+                    </select>
+                </div>
                 <a href="@Url.Action("AddToCart", "Checkout", new { id = Model.Album.Id } )">
                     <button type="button" class="btn-checkout">Add to Cart</button>
-                    </a>
+                </a>
             </div>
 
         </div>
