@@ -111,6 +111,7 @@ namespace MC3_Music.Controllers
         public ActionResult MoveToCheckOut()
         {
             var cart = _context.Cart.ToList();
+            
             double Total = 0;
             foreach (var item in cart)
             {

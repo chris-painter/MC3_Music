@@ -3,14 +3,15 @@
     ViewBag.Title = "CartCheckout";
 }
 
-<div class="col-md-4">
+<div class="col-lg-1"></div>
+<div class="col-md-3">
     <div class="row" style="margin-left: 5px;">
         @*<div class="col-lg-4" align="left">*@
         <div class="checkout">
             <div class="form-group">
                 <h3><b>Payment Information</b></h3>
                 <label>Name on Card</label>
-                <input id="firstName" class="form-control" placeholder="First Name">
+                <input id="firstName" class="form-control" placeholder="Full Name">
             </div>
             <div class="form-group">
                 <label>Credit Card Type</label>
@@ -65,7 +66,9 @@
     </div>
 </div>
 @*</div>*@
-<div class="col-lg-4">
+<div class="col-lg-1"></div>
+
+<div class="col-lg-3">
     <div class="form-group">
         <h3><b>Billing Address</b></h3>
         <input id="addressLine1" class="form-control" placeholder="Address Line 1">
@@ -91,20 +94,22 @@
         <input id="ShipZip" class="form-control" placeholder="Zip Code" />
     </div>
 </div>
-<div class="col-lg-4" style="text-align: right">
+<div class="col-lg-3" style="text-align: right">
     <h1 style="font-weight: bold">Summary</h1>
-    <h3>Total: $@Model</h3>
+    <h3>Amount: $@Model</h3>
     @{
         double tax = @Model * .09;
         <h3>Tax: $@Math.Round(tax, 2).ToString("0.00")</h3>
         double finalTotal = Model + tax;
-
-        <h2>Total: $@Math.Round(finalTotal, 2).ToString("0.00")</h2>
+        <hr />
+        <h2><b>Total: $@Math.Round(finalTotal, 2).ToString("0.00")</b></h2>
     }
+    <h1></h1>
     <a href="@Url.Action("Checkout", "Checkout")">
-        <input type="submit" id="btn-checkout" class="btn btn-custom btn-lg btn-block" value="Checkout">
+        <input type="submit" id="btn-checkout" class="btn-checkout" value="Checkout">
     </a>
 </div>
+<div class="col-lg-1"></div>
 <div class="col-lg-12">
     <hr />
 </div>
