@@ -129,7 +129,7 @@ namespace MC3_Music.Controllers
                 Transaction t = new Transaction
                 {
                     TransactionDate = DateTime.Now,
-                    Quantity = 1,
+                    Quantity = c.Quantity,
                     Album_Id = c.Album_Id,
                 };
 
@@ -137,7 +137,7 @@ namespace MC3_Music.Controllers
                 _context.Cart.Remove(c);
                 _context.SaveChanges();
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("PaymentConfirmation", "Checkout");
         }
 
 
