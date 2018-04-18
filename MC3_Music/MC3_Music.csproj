@@ -255,6 +255,10 @@
     <Compile Include="Migrations\201804162313170_UpdateAlbum.Designer.cs">
       <DependentUpon>201804162313170_UpdateAlbum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804181701519_RequiredFields.cs" />
+    <Compile Include="Migrations\201804181701519_RequiredFields.Designer.cs">
+      <DependentUpon>201804181701519_RequiredFields.cs</DependentUpon>
+      </Compile>
     <Compile Include="Migrations\201804171947212_AlbumPriceQuantity.cs" />
     <Compile Include="Migrations\201804171947212_AlbumPriceQuantity.Designer.cs">
       <DependentUpon>201804171947212_AlbumPriceQuantity.cs</DependentUpon>
@@ -449,6 +453,9 @@
     <EmbeddedResource Include="Migrations\201804162313170_UpdateAlbum.resx">
       <DependentUpon>201804162313170_UpdateAlbum.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804181701519_RequiredFields.resx">
+      <DependentUpon>201804181701519_RequiredFields.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804171947212_AlbumPriceQuantity.resx">
       <DependentUpon>201804171947212_AlbumPriceQuantity.cs</DependentUpon>
     </EmbeddedResource>
@@ -458,6 +465,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\ForgotPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Music\NewAlbumForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Music\CreateAlbum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_LoginPartial.cshtml" />

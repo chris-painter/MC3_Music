@@ -1,0 +1,39 @@
+﻿@model MC3_Music.Models.Album
+@{
+    ViewBag.Title = "NewAlbumForm";
+}
+
+<h2>NewAlbumForm</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.Title)
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Artist)
+        @Html.TextBoxFor(m => m.Artist, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Artist)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Genre)
+        @Html.TextBoxFor(m => m.Genre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Genre)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ImageURL)
+        @Html.TextBoxFor(m => m.ImageURL, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ImageURL)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Price)
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Price)
+    </div>
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn-primary">Save</button>
+}
