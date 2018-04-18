@@ -9,6 +9,8 @@ using MC3_Music.ViewModels;
 using MC3_Music.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using Microsoft.AspNet.Identity.EntityFramework;
+using MC3_Music.Context;
 
 namespace MC3_Music.Controllers
 {
@@ -74,7 +76,7 @@ namespace MC3_Music.Controllers
             {
                 return View(model);
             }
-
+            
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
@@ -124,6 +126,12 @@ namespace MC3_Music.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //Temp Code                     
+                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDataContext());
+                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    //await roleManager.CreateAsync(new IdentityRole("CanManageAlbums"));
+                    //await UserManager.AddToRoleAsync(user.Id, "CanManageAlbums");
+
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

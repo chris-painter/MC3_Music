@@ -2,11 +2,15 @@
 
 namespace MC3_Music.Controllers
 {
-    public class ServicesController : Controller
-    {
-        public ActionResult Index()
-        {
-            return View();
-        }
+	[Authorize]
+	public class ServicesController : Controller
+	{
+		public ActionResult Index()
+		{
+			if (User.IsInRole("CanManageAlbums"))
+				return View();
+			else
+				return RedirectToAction("Login", "Account");
+		}
 	}
 }

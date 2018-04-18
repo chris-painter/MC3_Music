@@ -8,7 +8,8 @@ using MC3_Music.Context;
 using MC3_Music.ViewModels;
 
 namespace MC3_Music.Controllers
-{
+{ 
+    [Authorize]
     public class CheckoutController : Controller
     {
         private ApplicationDataContext _context;
@@ -24,6 +25,7 @@ namespace MC3_Music.Controllers
         {
             _context.Dispose();
         }
+       
             // GET: Checkout
             public ActionResult Index()
         {
@@ -43,7 +45,8 @@ namespace MC3_Music.Controllers
 
             return View("CartView", viewModel);
         }
-
+       
+        
         public ActionResult AddToCart(int id)
         {
             Album album = _context.Albums.SingleOrDefault(a => a.Id == id);
