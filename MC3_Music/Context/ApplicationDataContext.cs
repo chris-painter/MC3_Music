@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 namespace MC3_Music.Context
 {
-    public class ApplicationDataContext : IdentityDbContext<AppUser>
+    public class ApplicationDataContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Album> Albums { get; set; }
         public DbSet<Song> Songs { get; set; }
