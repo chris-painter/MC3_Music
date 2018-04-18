@@ -12,6 +12,7 @@ namespace MC3_Music.Context
         public DbSet<Album> Albums { get; set; }
         public DbSet<Song> Songs { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Cart> Cart { get; set; }
 
         public DbSet<Transaction> Transactions { get; set; }
 

@@ -1,15 +1,13 @@
-﻿@model List<MC3_Music.Models.Transaction>
+﻿@model MC3_Music.ViewModels.ShoppingCartViewModel
 
 @{
     ViewBag.Title = "CartView";
 }
 
-<h2>CartView</h2>
-@foreach(var t in Model)
-{
-<h1>@t.Album.Artist</h1>
-}
+
+
 <div class="col-md-12">
+    <h2>Shopping Cart</h2>
     <table class="table">
         <thead>
             <tr>
@@ -19,49 +17,70 @@
                 <th>&nbsp;</th>
             </tr>
         </thead>
-        <tr>
-            <td class="albumColumn">Album Name</td>
-            <td class="quantityColumn">1</td>
-            <td class="priceColumn">$20</td>
-            <td>
-                <button type="button" class="btn-default">Remove</button>
-                <button type="button" class="btn-default">Edit</button>
+        @if (Model.Cart != null)
+        {
+            foreach (var cartItem in Model.Cart)
+            {
+                <tr>
+                    <td class="albumColumn">@cartItem.Album.Title</td>
+                    <td class="quantityColumn">@cartItem.Quantity</td>
+                    <td class="priceColumn">$@(cartItem.Album.Price * cartItem.Quantity)</td>
+                    <td>
+                        <a href="@Url.Action("RemoveAlbum", "Checkout", new { id = cartItem.Id } )">
+                            <button type="button" class="btn-default">Remove</button>
+                        </a>
+                        <button type="button" class="btn-default">Edit</button>
+                    </td>
+                </tr>
+            }
+        }
 
-            </td>
-        </tr>
-        <tr>
-            <td class="albumColumn">Album Name</td>
-            <td class="quantityColumn">1</td>
-            <td class="priceColumn">$20</td>
-            <td>
-                <button type="button" class="btn-default">Remove</button>
-                <button type="button" class="btn-default">Edit</button>
-
-            </td>
-        </tr>
-        <tr>
-            <td class="albumColumn">Album Name</td>
-            <td class="quantityColumn">1</td>
-            <td class="priceColumn">$20</td>
-            <td>
-                <button type="button" class="btn-default">Remove</button>
-                <button type="button" class="btn-default">Edit</button>
-
-            </td>
-        </tr>
-        <tr>
-            <td class="albumColumn">Album Name</td>
-            <td class="quantityColumn">1</td>
-            <td class="priceColumn">$20</td>
-            <td>
-                <button type="button" class="btn-default">Remove</button>
-                <button type="button" class="btn-default">Edit</button>
-
-            </td>
-        </tr>
     </table>
     <div class="col-md-10">
-        <button type="submit" class="btn-checkout">Checkout</button>
+        <a href="@Url.Action("MoveToCheckOut", "Checkout")">
+            <button type="submit" class="btn-checkout">Checkout</button>
+        </a>
     </div>
 </div>
+@*<tr>
+        <td class="albumColumn">Album Name</td>
+        <td class="quantityColumn">1</td>
+        <td class="priceColumn">$20</td>
+        <td>
+            <button type="button" class="btn-default">Remove</button>
+            <button type="button" class="btn-default">Edit</button>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="albumColumn">Album Name</td>
+        <td class="quantityColumn">1</td>
+        <td class="priceColumn">$20</td>
+        <td>
+            <button type="button" class="btn-default">Remove</button>
+            <button type="button" class="btn-default">Edit</button>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="albumColumn">Album Name</td>
+        <td class="quantityColumn">1</td>
+        <td class="priceColumn">$20</td>
+        <td>
+            <button type="button" class="btn-default">Remove</button>
+            <button type="button" class="btn-default">Edit</button>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="albumColumn">Album Name</td>
+        <td class="quantityColumn">1</td>
+        <td class="priceColumn">$20</td>
+        <td>
+            <button type="button" class="btn-default">Remove</button>
+            <button type="button" class="btn-default">Edit</button>
+
+        </td>
+    </tr>*@
+
 
