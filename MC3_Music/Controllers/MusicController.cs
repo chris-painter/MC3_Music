@@ -57,6 +57,45 @@ namespace MC3_Music.Controllers
             return View(viewModel);
         }
 
+        [HttpGet]
+        public ActionResult CreateAlbum()
+        {
+            var album = new Album();
+            return View(album);
+        }
+
+        [HttpPost]
+        public ActionResult CreateAlbum(Album newAlbum)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(newAlbum);
+            //}
+            var a = new Album
+            {
+                Artist = newAlbum.Artist,
+                Title = newAlbum.Title,
+                Genre = newAlbum.Genre,
+                Stock = 1000,
+                Rating = 4,
+                ImageURL = newAlbum.ImageURL,
+                Price = newAlbum.Price
+            };
+
+            _context.Albums.Add(a);
+            _context.SaveChanges();
+
+
+            return RedirectToAction("Index", "Music");
+        }
+
+        public ActionResult AddAlbum()
+        {
+            var model = new Album();
+            return View("CreateAlbum", model);
+        }
+        
+
         //public ActionResult getAlbum()
         //{
         //    return View("SingleAlbum");

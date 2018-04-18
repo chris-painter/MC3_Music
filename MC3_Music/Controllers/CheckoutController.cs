@@ -144,6 +144,10 @@ namespace MC3_Music.Controllers
             return RedirectToAction("PaymentConfirmation", "Checkout");
         }
 
+        public ActionResult PaymentConfirmation()
+        {
+            return View();
+        }
 
 
 
