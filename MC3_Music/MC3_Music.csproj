@@ -251,6 +251,10 @@
     <Compile Include="Migrations\201804162313170_UpdateAlbum.Designer.cs">
       <DependentUpon>201804162313170_UpdateAlbum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804181701519_RequiredFields.cs" />
+    <Compile Include="Migrations\201804181701519_RequiredFields.Designer.cs">
+      <DependentUpon>201804181701519_RequiredFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -438,12 +442,18 @@
     <EmbeddedResource Include="Migrations\201804162313170_UpdateAlbum.resx">
       <DependentUpon>201804162313170_UpdateAlbum.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804181701519_RequiredFields.resx">
+      <DependentUpon>201804181701519_RequiredFields.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\ForgotPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Music\NewAlbumForm.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
