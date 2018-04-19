@@ -258,7 +258,7 @@
     <Compile Include="Migrations\201804181701519_RequiredFields.cs" />
     <Compile Include="Migrations\201804181701519_RequiredFields.Designer.cs">
       <DependentUpon>201804181701519_RequiredFields.cs</DependentUpon>
-      </Compile>
+    </Compile>
     <Compile Include="Migrations\201804171947212_AlbumPriceQuantity.cs" />
     <Compile Include="Migrations\201804171947212_AlbumPriceQuantity.Designer.cs">
       <DependentUpon>201804171947212_AlbumPriceQuantity.cs</DependentUpon>
@@ -474,6 +474,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Music\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
