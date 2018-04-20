@@ -263,6 +263,10 @@
     <Compile Include="Migrations\201804171947212_AlbumPriceQuantity.Designer.cs">
       <DependentUpon>201804171947212_AlbumPriceQuantity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804192356471_foreignEmail.cs" />
+    <Compile Include="Migrations\201804192356471_foreignEmail.Designer.cs">
+      <DependentUpon>201804192356471_foreignEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -458,6 +462,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804171947212_AlbumPriceQuantity.resx">
       <DependentUpon>201804171947212_AlbumPriceQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804192356471_foreignEmail.resx">
+      <DependentUpon>201804192356471_foreignEmail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

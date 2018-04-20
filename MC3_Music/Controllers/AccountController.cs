@@ -20,8 +20,12 @@ namespace MC3_Music.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        private ApplicationDataContext _context;
+
+
         public AccountController()
         {
+            _context = new ApplicationDataContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -108,6 +112,12 @@ namespace MC3_Music.Controllers
         {
             return View();
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
@@ -121,8 +131,9 @@ namespace MC3_Music.Controllers
                     UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
                 };
+                
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -140,11 +151,21 @@ namespace MC3_Music.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+                    var customer = new Customer
+                    {
+                        User = user,
+                        Email = model.Email,
+                        FirstName = model.FirstName,
+                        LastName = model.LastName
+                    };
+                    _context.Customers.Add(customer);
+                    _context.SaveChanges();
+
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
-
+            
             // If we got this far, something failed, redisplay form
             return View(model);
         }

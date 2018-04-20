@@ -27,6 +27,10 @@ namespace MC3_Music.Controllers
         public ActionResult Index()
         {
             var albums = _context.Albums.ToList();
+            for(int i = 0; i < albums.Count; i++)
+            {
+
+            }
             List<Album> inStockAlbums = new List<Album>();
             foreach(var a in albums)
             {

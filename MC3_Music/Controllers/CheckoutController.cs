@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using MC3_Music.Models;
 using MC3_Music.Context;
 using MC3_Music.ViewModels;
+using Microsoft.AspNet.Identity;
+
 
 namespace MC3_Music.Controllers
 { 
@@ -49,6 +51,9 @@ namespace MC3_Music.Controllers
         
         public ActionResult AddToCart(int id)
         {
+            string userId = User.Identity.GetUserId();
+            var customer = _context.Customers.SingleOrDefault(a => a.User.Id.ToString() == userId);
+
             Album album = _context.Albums.SingleOrDefault(a => a.Id == id);
             var c = _context.Cart.ToList();
             bool match = false;
@@ -68,7 +73,8 @@ namespace MC3_Music.Controllers
                 {
                     Album = album,
                     Album_Id = album.Id,
-                    Quantity = 1
+                    Quantity = 1,
+                    Customer = customer
                 };
                 _context.Cart.Add(cartItem);
             }
