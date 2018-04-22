@@ -64,6 +64,9 @@ namespace MC3_Music.Controllers
         {
             return View();
         }
+
+        
+
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -71,6 +74,8 @@ namespace MC3_Music.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+
+       
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]

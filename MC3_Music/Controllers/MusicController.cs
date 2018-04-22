@@ -26,11 +26,13 @@ namespace MC3_Music.Controllers
         // GET: Music
         public ActionResult Index()
         {
+            
             var albums = _context.Albums.ToList();
             for(int i = 0; i < albums.Count; i++)
             {
 
             }
+            
             List<Album> inStockAlbums = new List<Album>();
             foreach(var a in albums)
             {
@@ -61,6 +63,7 @@ namespace MC3_Music.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult CreateAlbum()
         {
@@ -68,6 +71,7 @@ namespace MC3_Music.Controllers
             return View(album);
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult CreateAlbum(Album newAlbum)
         {
@@ -93,6 +97,7 @@ namespace MC3_Music.Controllers
             return RedirectToAction("Index", "Music");
         }
 
+        [Authorize]
         public ActionResult AddAlbum()
         {
             var model = new Album();

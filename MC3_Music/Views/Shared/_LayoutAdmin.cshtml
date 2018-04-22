@@ -1,0 +1,27 @@
+﻿@*@model MC3_Music.Controllers.TransactionsController*@
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (User.IsInRole("CanManageAlbums"))
+{
+    using (Html.BeginForm("Index", "Transactions", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "index", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            @*<li>
+                @Html.ActionLink("Report", "Index", routeValues: null, htmlAttributes: new { title = "Report" })
+            </li>*@
+            <li><a href="javascript:document.getElementById('index').submit()">Report</a></li>
+        </ul>
+    }
+}
+
+else
+{
+    @*<ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Account", "Index", "Account", routeValues: null, htmlAttributes: new { id = "accountLink" })</li>
+    </ul>*@
+}
