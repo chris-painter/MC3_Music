@@ -10,7 +10,7 @@ namespace MC3_Music.Models
     public class Customer
     {
         public int Id { get; set; }
-        public ApplicationUser User { get; set; }
+        public string UserId { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

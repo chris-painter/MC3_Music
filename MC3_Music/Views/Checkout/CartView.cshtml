@@ -21,17 +21,21 @@
         {
             foreach (var cartItem in Model.Cart)
             {
-                <tr>
-                    <td class="albumColumn">@cartItem.Album.Title</td>
-                    <td class="quantityColumn">@cartItem.Quantity</td>
-                    <td class="priceColumn">$@(cartItem.Album.Price * cartItem.Quantity)</td>
-                    <td>
-                        <a href="@Url.Action("RemoveAlbum", "Checkout", new { id = cartItem.Id } )">
-                            <button type="button" class="btn-default">Remove</button>
-                        </a>
-                        <button type="button" class="btn-default">Edit</button>
-                    </td>
-                </tr>
+                if (cartItem.Customer == Model.Customer)
+                {
+                    <tr>
+                        <td class="albumColumn">@cartItem.Album.Title</td>
+                        <td class="quantityColumn">@cartItem.Quantity</td>
+                        <td class="priceColumn">$@(cartItem.Album.Price * cartItem.Quantity)</td>
+                        <td>
+                            <a href="@Url.Action("RemoveAlbum", "Checkout", new { id = cartItem.Id } )">
+                                <button type="button" class="btn-default">Remove</button>
+                            </a>
+                            <button type="button" class="btn-default">Edit</button>
+                        </td>
+                    </tr>
+                }
+
             }
         }
 
