@@ -6,7 +6,7 @@
 
 @if (Request.IsAuthenticated & !User.IsInRole("CanManageAlbums"))
 {
-    using (Html.BeginForm("CartView", "Checkout", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "cartview", @class = "navbar-right" }))
+    //using (Html.BeginForm("Index", "Checkout", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "cartview", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
 
@@ -14,10 +14,10 @@
     @*<li>
         @Html.ActionLink("Cart", "CartView", "Checkout")
     </li*@>
-    @*<li>
-            @Html.ActionLink("Cart", "CartView", routeValues: null, htmlAttributes: new { title = "Cart" })
-        </li>*@
-    <li><a href="javascript:document.getElementById('cartview').submit()">Cart</a></li>
+    <li>
+            @Html.ActionLink("Cart", "CartView", "Checkout")
+        </li>
+    @*<li><a href="javascript:document.getElementById('cartview').submit()">Cart</a></li>*@
 </ul>
     }
 }
