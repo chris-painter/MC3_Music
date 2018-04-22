@@ -179,6 +179,7 @@
     <Compile Include="Controllers\OtherController.cs" />
     <Compile Include="Controllers\PortfolioController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Dtos\AlbumDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -258,7 +259,7 @@
     <Compile Include="Migrations\201804181701519_RequiredFields.cs" />
     <Compile Include="Migrations\201804181701519_RequiredFields.Designer.cs">
       <DependentUpon>201804181701519_RequiredFields.cs</DependentUpon>
-      </Compile>
+    </Compile>
     <Compile Include="Migrations\201804171947212_AlbumPriceQuantity.cs" />
     <Compile Include="Migrations\201804171947212_AlbumPriceQuantity.Designer.cs">
       <DependentUpon>201804171947212_AlbumPriceQuantity.cs</DependentUpon>
@@ -275,6 +276,7 @@
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="ViewModels\SingleAlbumViewModel.cs" />
+    <Compile Include="ViewModels\TransactionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-MC3_Music-20140225031045.mdf" />
@@ -474,6 +476,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Transactions\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Transactions\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Transactions\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Transactions\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Transactions\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
