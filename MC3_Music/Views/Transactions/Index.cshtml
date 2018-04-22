@@ -1,0 +1,267 @@
+﻿
+@model MC3_Music.ViewModels.TransactionViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="@Url.Content("/css/bootstrap.css")" rel="stylesheet">
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Index</title>
+</head>
+<body>
+
+    <h1 class="page-header">Reports</h1>
+
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    @*@Model. use this to make a new table, list of albums and array of transactions*@
+    <h3 class="report-header">Sold Items</h3>
+    <table class="table">
+        <tr>
+            <th>
+                Album
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th>Total</th>
+
+        </tr>
+
+        @{
+            foreach (var album in Model.Albums)
+            {
+                int quantity = 0;
+                foreach (var trans in Model.Transactions.OrderByDescending(q => q.Quantity))
+                {
+                    if (trans.Album_Id == album.Id)
+                    {
+                        quantity = quantity + trans.Quantity;
+
+                    }
+                }
+                double total = quantity * album.Price;
+                if (quantity > 0)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(a => album.Title)</td>
+                        <td>@Html.DisplayFor(a => quantity)</td>
+                        <td>@Html.DisplayFor(a => album.Price)</td>
+                        <td>@Html.DisplayFor(a => total)</td>
+
+                    </tr>
+
+
+                }
+            }
+        }
+        @*<tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>*@
+
+
+    </table>
+    <h3 class="report-header">Total Revenue for each Genre</h3>
+    @*do work here for next report*@
+    <table class="table">
+        <tr>
+            <th>
+                Genre
+            </th>
+            <th>
+                Quantity
+            </th>
+            @*<th>
+                    Price
+                </th>*@
+            <th>Total Revenue</th>
+
+        </tr>
+
+
+        <tr>
+
+
+            @{
+
+                foreach (var genre in Model.Albums)
+                {
+                    int quantity = 0;
+                    foreach (var trans in Model.Transactions)
+                    {
+                        if (trans.Album_Id == genre.Id)
+                        {
+                            quantity = quantity + trans.Quantity;
+
+                        }
+                    }
+                    double total = quantity * genre.Price;
+
+                    if (quantity > 0)
+                    {
+                    <tr>
+                        <td>@Html.DisplayFor(a => genre.Genre)</td>
+                        <td>@Html.DisplayFor(a => quantity)</td>
+                        <td>@Html.DisplayFor(a => total)</td>
+
+                    </tr>
+
+                }
+
+
+            }
+
+
+            }
+        </table>
+        <h3 class="report-header">Stock Amount</h3>
+
+        <table class="table">
+            <tr>
+                <th>
+                    Album
+                </th>
+                <th>Sold</th>
+                <th>
+                    Stock
+                </th>
+            </tr>
+            <tr>
+                @{
+                    foreach (var stock in Model.Albums)
+                    {
+                        double sold = 1000 - stock.Stock;
+                    <tr>
+                        <td>@Html.DisplayFor(a => stock.Title)</td>
+                        <td>@Html.DisplayFor(a => sold)</td>
+                        <td>@Html.DisplayFor(a => stock.Stock)</td>
+                    </tr>
+
+                }
+                }
+            </table>
+
+            <h3 class="report-header">Total Revenue by Year</h3>
+            <table class="table">
+                <tr>
+                    <th>
+                        Year
+                    </th>
+                    <th>Total</th>
+                    <th>Total Revenue</th>
+                </tr>
+
+                @{
+                    @*double totalRev =
+                            (
+                            from price in Model.Transactions
+                            select price.Price).Sum();
+                        <tr>
+
+                            <td>@Html.DisplayFor(a => totalRev)</td>*@
+                    @*</tr>*@
+                    double totalRev = 0;
+                    double rowTotal = 0;
+                    for (int year = 2010; year < 2050; year++)
+                    {
+                        foreach (var tran in Model.Transactions)
+                        {
+                            if (tran.TransactionDate.Year == year)
+                            {
+                                rowTotal = tran.Quantity * tran.Price;
+                                totalRev = totalRev + rowTotal;
+
+                            }
+                        }
+                        if (rowTotal > 0)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(a => year)</td>
+                                <td>@Html.DisplayFor(a => rowTotal)</td>
+                                <td>@Html.DisplayFor(a => totalRev)</td>
+
+
+                            </tr>
+                        }
+
+                        rowTotal = 0;
+
+                    }
+                    @*foreach (var year in Model.Transactions.OrderBy(y => y.TransactionDate.Year))
+                        {
+
+                            double total = year.Quantity * year.Price;
+
+                            totalRev += total;
+
+                            //double totalRev =
+                            // (
+                            // from price in Model.Transactions
+                            // select price.Price).Sum();
+
+                            <tr>
+                                <td>@Html.DisplayFor(a => year.TransactionDate.Year)</td>
+                                <td>@Html.DisplayFor(a => total)</td>
+                                <td>@Html.DisplayFor(a => totalRev)</td>
+                            </tr>
+                        }*@
+
+
+                    @*<td>@Html.DisplayFor(a => total)</td>
+                           <td>@Html.DisplayFor(a => totalRev)</td>
+
+                           </tr>
+
+                        @*foreach (var t in Model.Transactions)
+                        {
+
+
+
+                            double quantity = 0 + t.Quantity;
+
+                            double total = quantity * t.Price;
+
+                            <tr>
+                                <td>@Html.DisplayFor(a => t.TransactionDate.Year)</td>
+                                @*<td>@Html.DisplayFor(a => quantity)</td>
+                                <td>@Html.DisplayFor(a => t.Price)</td>*@
+                    @*<td>@Html.DisplayFor(a => total)</td>
+
+                        </tr>*@
+
+
+
+
+                }
+
+
+            </table>
+
+        </body>
+    </html>
