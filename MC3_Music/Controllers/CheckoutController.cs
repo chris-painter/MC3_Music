@@ -140,19 +140,26 @@ namespace MC3_Music.Controllers
         public ActionResult Checkout()
         {
             var cart = _context.Cart.ToList();
+            var customer = GetCustomer();
             foreach(var c in cart)
             {
-                Transaction t = new Transaction
+                if(c.Customer == customer)
                 {
-                    TransactionDate = DateTime.Now,
-                    Quantity = c.Quantity,
-                    Album_Id = c.Album_Id,
-                    Customer = GetCustomer()
-                };
+                    var album = _context.Albums.SingleOrDefault(a => a.Id == c.Album_Id);
 
-                _context.Transactions.Add(t);
-                _context.Cart.Remove(c);
-                _context.SaveChanges();
+                    Transaction t = new Transaction
+                    {
+                        TransactionDate = DateTime.Now,
+                        Quantity = c.Quantity,
+                        Album_Id = c.Album_Id,
+                        Customer = customer,
+                    };
+
+                    _context.Transactions.Add(t);
+                    _context.Cart.Remove(c);
+                    _context.SaveChanges();
+                }
+                
             }
             return RedirectToAction("PaymentConfirmation", "Checkout");
         }

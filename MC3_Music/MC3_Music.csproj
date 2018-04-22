@@ -271,6 +271,14 @@
     <Compile Include="Migrations\201804221756400_changeCustomerModel.Designer.cs">
       <DependentUpon>201804221756400_changeCustomerModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804221819056_AddAlbumsToAlbumsTable.cs" />
+    <Compile Include="Migrations\201804221819056_AddAlbumsToAlbumsTable.Designer.cs">
+      <DependentUpon>201804221819056_AddAlbumsToAlbumsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804221846249_updatePriceTable.cs" />
+    <Compile Include="Migrations\201804221846249_updatePriceTable.Designer.cs">
+      <DependentUpon>201804221846249_updatePriceTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -472,6 +480,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804221756400_changeCustomerModel.resx">
       <DependentUpon>201804221756400_changeCustomerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804221819056_AddAlbumsToAlbumsTable.resx">
+      <DependentUpon>201804221819056_AddAlbumsToAlbumsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804221846249_updatePriceTable.resx">
+      <DependentUpon>201804221846249_updatePriceTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
