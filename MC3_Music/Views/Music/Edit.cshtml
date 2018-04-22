@@ -1,50 +1,52 @@
 ﻿@model MC3_Music.Models.Album
 @{
-    ViewBag.Title = "CreateAlbum";
+    ViewBag.Title = "Edit";
 }
 
 <div class="row">
     <div class="col-lg-1"></div>
-    <div class="col-lg-3">
-        <h2>Create Album</h2>
+    <div class="col-lg-5">
+        <h2>Edit Album</h2>
+
     </div>
 </div>
+
 <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
-        @using (Html.BeginForm("CreateAlbum", "Music", FormMethod.Post, new { album = Model }))
+        @using (Html.BeginForm("Edit", "Music", FormMethod.Post, new { album = Model }))
         {
             @Html.ValidationSummary(true, "Please fix the following errors.")
             <div class="form-group">
                 @Html.LabelFor(model => model.Title)
-                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                @Html.EditorFor(model => model.Title, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Title)
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Artist)
-                @Html.TextBoxFor(model => model.Artist, new { @class = "form-control" })
+                @Html.EditorFor(model => model.Artist, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Artist)
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Genre)
-                @Html.TextBoxFor(model => model.Genre, new { @class = "form-control" })
+                @Html.EditorFor(model => model.Genre, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Genre)
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.ImageURL)
-                @Html.TextBoxFor(model => model.ImageURL, new { @class = "form-control" })
+                @Html.EditorFor(model => model.ImageURL, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ImageURL)
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Price)
-                @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+                @Html.EditorFor(model => model.Price, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Price)
             </div>
             @Html.HiddenFor(model => model.Id)
             @Html.AntiForgeryToken()
-            <button type="submit" class="btn-checkout">Save</button>
+            <button type="submit" class="btn-primary">Save</button>
         }
-
     </div>
 
 </div>
+

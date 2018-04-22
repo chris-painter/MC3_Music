@@ -17,19 +17,6 @@ namespace MC3_Music.Models
         public int Quantity { get; set; }
         public DateTime TransactionDate { get; set; }
         public double Price { get; set; }
-
-
-        //public double Price
-        //{
-        //    get
-        //    {
-        //        return price;
-        //    }
-        //    set
-        //    {
-        //        price = Album.Price;
-        //    }
-        //}
         
     }
 }

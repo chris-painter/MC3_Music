@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using MC3_Music.Models;
 using MC3_Music.Context;
 using MC3_Music.ViewModels;
+using Microsoft.AspNet.Identity;
+using System.Web.Security;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace MC3_Music.Controllers
 { 
@@ -34,13 +37,17 @@ namespace MC3_Music.Controllers
 
         public ActionResult CartView()
         {
+            var customer = GetCustomer();
+
             var albums = _context.Albums.ToList();
             var cart = _context.Cart.ToList();
+
 
             var viewModel = new ShoppingCartViewModel
             {
                 Albums = albums,
-                Cart = cart
+                Cart = cart,
+                Customer = customer
             };
 
             return View("CartView", viewModel);
@@ -49,12 +56,14 @@ namespace MC3_Music.Controllers
         
         public ActionResult AddToCart(int id)
         {
+            var customer = GetCustomer();
+
             Album album = _context.Albums.SingleOrDefault(a => a.Id == id);
             var c = _context.Cart.ToList();
             bool match = false;
             foreach (var e in c)
             {
-                if (album.Id == e.Album_Id)
+                if (album.Id == e.Album_Id && customer == e.Customer)
                 {
                     e.Quantity++;
                     match = true;
@@ -68,7 +77,8 @@ namespace MC3_Music.Controllers
                 {
                     Album = album,
                     Album_Id = album.Id,
-                    Quantity = 1
+                    Quantity = 1,
+                    Customer = customer
                 };
                 _context.Cart.Add(cartItem);
             }
@@ -80,10 +90,12 @@ namespace MC3_Music.Controllers
             var albums = _context.Albums.ToList();
             var cart = _context.Cart.ToList();
 
+
             var viewModel = new ShoppingCartViewModel
             {
                 Albums = albums,
-                Cart = cart
+                Cart = cart,
+                Customer = GetCustomer()
             };
 
             return View("CartView", viewModel);
@@ -128,18 +140,28 @@ namespace MC3_Music.Controllers
         public ActionResult Checkout()
         {
             var cart = _context.Cart.ToList();
+            var customer = GetCustomer();
             foreach(var c in cart)
             {
-                Transaction t = new Transaction
+                if (c.Customer == customer)
                 {
-                    TransactionDate = DateTime.Now,
-                    Quantity = c.Quantity,
-                    Album_Id = c.Album_Id,
-                };
+                    var album = _context.Albums.SingleOrDefault(a => a.Id == c.Album_Id);
 
-                _context.Transactions.Add(t);
-                _context.Cart.Remove(c);
-                _context.SaveChanges();
+                    Transaction t = new Transaction
+                    {
+                        TransactionDate = DateTime.Now,
+                        Quantity = c.Quantity,
+                        Album_Id = c.Album_Id,
+                        Customer = customer,
+                        Price = album.Price
+                    };
+
+                    _context.Transactions.Add(t);
+                    _context.Cart.Remove(c);
+                    _context.SaveChanges();
+                }
+                else { }
+                
             }
             return RedirectToAction("PaymentConfirmation", "Checkout");
         }
@@ -149,7 +171,13 @@ namespace MC3_Music.Controllers
             return View();
         }
 
-
+        public Customer GetCustomer()
+        {
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            var userId = user.Id;
+            var customer = _context.Customers.SingleOrDefault(a => a.UserId == userId);
+            return customer;
+        }
 
     }
 }

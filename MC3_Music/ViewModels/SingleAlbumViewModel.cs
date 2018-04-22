@@ -10,5 +10,6 @@ namespace MC3_Music.ViewModels
     {
         public Album Album { get; set; }
         public List<Song> Songs { get; set; }
+        public string Size { get; set; }
     }
 }

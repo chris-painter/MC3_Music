@@ -28,6 +28,10 @@ namespace MC3_Music.Controllers
         {
             
             var albums = _context.Albums.ToList();
+            for(int i = 0; i < albums.Count; i++)
+            {
+
+            }
             
             List<Album> inStockAlbums = new List<Album>();
             foreach(var a in albums)
@@ -100,11 +104,27 @@ namespace MC3_Music.Controllers
             return View("CreateAlbum", model);
         }
         
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Album album = _context.Albums.SingleOrDefault(a => a.Id == id);
+            return View(album);
+        }
 
-        //public ActionResult getAlbum()
-        //{
-        //    return View("SingleAlbum");
-        //}
+        [HttpPost]
+        public ActionResult Edit(Album album)
+        {
+            Album albumToEdit = _context.Albums.SingleOrDefault(a => a.Id == album.Id);
+            albumToEdit.Title = album.Title;
+            albumToEdit.Artist = album.Artist;
+            albumToEdit.Genre = album.Genre;
+            albumToEdit.ImageURL = album.ImageURL;
+            albumToEdit.Price = album.Price;
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Music");
+
+        }
 
         // GET: Music/Random
         public ActionResult Random() {
