@@ -284,10 +284,6 @@
     <Compile Include="Migrations\201804221850033_updatePriceInTrans.Designer.cs">
       <DependentUpon>201804221850033_updatePriceInTrans.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804222041303_AddSongs.cs" />
-    <Compile Include="Migrations\201804222041303_AddSongs.Designer.cs">
-      <DependentUpon>201804222041303_AddSongs.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -499,9 +495,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804221850033_updatePriceInTrans.resx">
       <DependentUpon>201804221850033_updatePriceInTrans.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804222041303_AddSongs.resx">
-      <DependentUpon>201804222041303_AddSongs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
