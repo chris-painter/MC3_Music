@@ -58,15 +58,16 @@
                             </li>
                         </ul>
                     </li>*@
-                    <li id="login">
+                    @*<li id="login">
 
                         @Html.ActionLink("Login", "Login", "Account")
                     </li>
                     <li id="register">
                         @Html.ActionLink("Register", "Register", "Account")
-                    </li>
+                    </li>*@
                     <li id="name"> @Html.Partial("_LoginPartial")</li>
                     <li id="report">@Html.Partial("_LayoutAdmin")</li>
+                    <li id="cartview">@Html.Partial("_LayoutUser")</li>
                     
                     @*<li id="portfolio" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
