@@ -143,7 +143,7 @@ namespace MC3_Music.Controllers
             var customer = GetCustomer();
             foreach(var c in cart)
             {
-                if(c.Customer == customer)
+                if (c.Customer == customer)
                 {
                     var album = _context.Albums.SingleOrDefault(a => a.Id == c.Album_Id);
 
@@ -153,12 +153,14 @@ namespace MC3_Music.Controllers
                         Quantity = c.Quantity,
                         Album_Id = c.Album_Id,
                         Customer = customer,
+                        Price = album.Price
                     };
 
                     _context.Transactions.Add(t);
                     _context.Cart.Remove(c);
                     _context.SaveChanges();
                 }
+                else { }
                 
             }
             return RedirectToAction("PaymentConfirmation", "Checkout");

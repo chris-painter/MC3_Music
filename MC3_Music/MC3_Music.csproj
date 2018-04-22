@@ -279,6 +279,10 @@
     <Compile Include="Migrations\201804221846249_updatePriceTable.Designer.cs">
       <DependentUpon>201804221846249_updatePriceTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804221850033_updatePriceInTrans.cs" />
+    <Compile Include="Migrations\201804221850033_updatePriceInTrans.Designer.cs">
+      <DependentUpon>201804221850033_updatePriceInTrans.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -486,6 +490,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804221846249_updatePriceTable.resx">
       <DependentUpon>201804221846249_updatePriceTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804221850033_updatePriceInTrans.resx">
+      <DependentUpon>201804221850033_updatePriceInTrans.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
